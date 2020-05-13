@@ -1,82 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>AndyLand</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">
-            <img src="/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
-            Andrew Sanders
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Portfolio.html">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="game.html">Game</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div id="ProjectsCarousel" class="carousel slide col-md-6 offset-md-3" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-interval="4000">
-          <img src="images/EngagementRTCDfar.png" class="d-block w-100" alt="">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>EngagementTracker</h5>
-          </div>
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/AI3far.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/OurSongsfar.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/SimpleWebserverfar.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/ZombiLandfar.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/VR2far.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/SynFloodfar.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/SavannahPortfar.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/AI10far.png" class="d-block w-100" alt="">
-        </div>
-        <div class="carousel-item" data-interval="4000">
-          <img src="images/Chattyiofar.png" class="d-block w-100" alt="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css">
+  <title>AndyLand</title>
+</head>
+
+<body>
+  <div class="main">
+    <h1>
+      Andrew Sanders
+    </h1>
+    <hr>
+    <div >
+      <div class="About" style="float: left; width: 50%; border-right: 1px solid grey; padding: 5px;">
+        <h2>
+          About
+        </h2>
+          <img src="images/Andrew.jpg" alt="Andrew Sanders"
+            style="width: auto; height: 250px; float: left; padding: 10px;">
+          <p>
+            My name is Andrew Sanders. I am from Saint Simons Island, Georgia and I love computers. I have a Bachelor in
+            Computer Science from Georgia Southern. Please hire me lol
+            (or just check out my portfolio)
+          </p>
+      </div>
+      <div class="Contact" style="float: left; width: 50%; padding: 5px;">
+        <h2>
+          Contact Info
+        </h2>
+        <p>
+          Email: andrew101sanders@gmail.com<br>
+          Github: https://github.com/andrew101sanders
+        </p>
+      </div>
+    </div>
+    <div style="clear: both;"></div>
+    <hr>
+    <h2>Projects</h2>
+    <div class="row">
+      <div class="column">
+        <div class="content">
+          <img src="images/EngagementRTCD.png" alt="Engagement Tracker" style="width: 100%;">
+          <h3>Engagement Tracker</h3>
+          <p class="proglang">
+            NodeJS, Python, C#, SQL Server
+          </p>
+          <p>System for judging classroom attentiveness using eye trackers, web
+            cameras, and a Convolutional Neural Network. (Started as a class
+            project and expanded to extracurricular research)</p>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#ProjectsCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#ProjectsCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <div class="column">
+        <div class="content">
+          <img src="images/AI3.png" alt="Pixel-based Shortest Path" style="width: 100%;">
+          <h3>Pixel-based Shortest Path</h3>
+          <p class="proglang">
+            Python
+          </p>
+          <p>Program for finding the shortest path given "satellite data".</p>
+          <a href="https://github.com/andrew101sanders/AISoftbot">Github</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="images/OurSongs.png" alt="OurSongs" style="width: 100%;">
+          <h3>OurSongs</h3>
+          <p class="proglang">
+            NodeJS, SQL Server
+          </p>
+          <p>Spotify-integrated song and playlist sharing service.</p>
+          <a href="https://github.com/averyboutin/OurSongs">Github</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="images/SimpleWebserver.png" alt="Simple-Webserver" style="width: 100%;">
+          <h3>Simple-Webserver</h3>
+          <p class="proglang">
+            NodeJS
+          </p>
+          <p>Light-weight webserver that allows for transferring of files
+            to-and-from. Allows for watching of media when not near the
+            computer.</p>
+          <a href="https://github.com/andrew101sanders/Simple-Webserver">Github</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="images/ZombiLand.png" alt="ZombiLand" style="width: 100%;">
+          <h3>ZombiLand</h3>
+          <p class="proglang">
+            Java
+          </p>
+          <p>Top-down survival shooter. Created in Java.</p>
+          <a href="https://github.com/Syntaxii/OOD">Github</a>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="column">
+        <div class="content">
+          <img src="images/VR2.png" alt="Vr Driving Game" style="width: 100%;">
+          <h3>Vr Driving Game</h3>
+          <p class="proglang">
+            Unity, Blender, C#
+          </p>
+          <p>Vr game made in Unity for a class project.</p>
+          <a href="https://github.com/andrew101sanders/VRDrivingGame">Github</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="images/SynFlood.png" alt="SynFlood" style="width: 100%;">
+          <h3>Syn Packet Flooder</h3>
+          <p class="proglang">
+            C#
+          </p>
+          <p>Program for rapidly sending out packets to flood a network.</p>
+          <a href="https://github.com/andrew101sanders/SynFlood">Github</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="images/SavannahPort.png" alt="SavannahPort" style="width: 100%;">
+          <h3>SavannahPort</h3>
+          <p class="proglang">
+            C#, SQL
+          </p>
+          <p>Program for simulating the database of the port of Savannah.</p>
+          <a href="https://github.com/as13770/DatabaseProject">Github</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="images/AI10far.png" alt="Registration Helper" style="width: 100%;">
+          <h3>Registration Helper</h3>
+          <p class="proglang">
+            C#
+          </p>
+          <p>Program for helping a Computer Science student of Georgia Southern University to complete their
+            Registration.</p>
+          <a href="https://github.com/bradleyboswell/AI-RuleBasedSystem">Github</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <img src="images/Chattyio.png" alt="Chattyio" style="width: 100%;">
+          <h3>Chattyio</h3>
+          <p class="proglang">
+            NodeJS
+          </p>
+          <p>System for chatting online through a server.</p>
+          <a href="https://github.com/bradleyboswell/Chatty.IO">Github</a>
+        </div>
+      </div>
+      <div class="row"></div>
+      <div class="column">
+        <div class="content">
+          <img src="images/AirBnB Pricer.png" alt="AirBnB Pricer" style="width: 100%;">
+          <h3>AirBnB Pricer</h3>
+          <p class="proglang">
+            Python
+          </p>
+          <p>Program for recommending to homeowners a price to list their property on AirBnb</p>
+          <a href="https://github.com/andrew101sanders/MLProject">Github</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
 </body>
+
 </html>
