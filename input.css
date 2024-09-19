@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: 'Inter', sans-serif;
+}
+  .email-obfuscate::after {
+    content: attr(data-name) "@" attr(data-domain) "." attr(data-tld);
+}
+  .footer-icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
 /* latin-ext */
 @font-face {
     font-family: 'Inter';
