@@ -1,8 +1,8 @@
-# Set the target width for resizing (adjust as needed)
-$targetWidth = 800
+# Set the target widths for resizing
+$targetWidths = @(320, 640, 1280)
 
-# Get all PNG, JPG, and JPEG files in the current directory
-$imageFiles = Get-ChildItem -Path . -Filter *.jpg -File
+# Get all PNG and JPG files in the current directory
+$imageFiles = Get-ChildItem -Path . -Include *.png, *.jpg -File
 
 # Total number of files for progress tracking
 $totalFiles = $imageFiles.Count
@@ -16,21 +16,30 @@ foreach ($file in $imageFiles) {
     
     # Get image dimensions
     $imageInfo = ffmpeg -i $file.FullName -v quiet -print_format json -show_format -show_streams | ConvertFrom-Json
-    $width = $imageInfo.streams.width
-    $height = $imageInfo.streams.height
+    $originalWidth = $imageInfo.streams.width
+    $originalHeight = $imageInfo.streams.height
     
-    $outputFile = $file.DirectoryName + "\" + $file.BaseName + ".webp"
+    foreach ($targetWidth in $targetWidths) {
+        if ($originalWidth -gt $targetWidth) {
+            $newHeight = [math]::Round(($targetWidth / $originalWidth) * $originalHeight)
+            
+            # Create WebP version
+            $outputFileWebP = $file.DirectoryName + "\" + $file.BaseName + "_" + $targetWidth + "w.webp"
+            ffmpeg -i $file.FullName -vf scale=$targetWidth:$newHeight $outputFileWebP -y
+            
+            # Create PNG version
+            $outputFilePNG = $file.DirectoryName + "\" + $file.BaseName + "_" + $targetWidth + "w.png"
+            ffmpeg -i $file.FullName -vf scale=$targetWidth:$newHeight $outputFilePNG -y
+            
+            Write-Host "  Resized and converted: $($file.Name) -> ${targetWidth}w (WebP and PNG)"
+        }
+    }
     
-    # if ($width -gt $targetWidth) {
-    #     # Resize and convert
-    #     $newHeight = [math]::Round(($targetWidth / $width) * $height)
-    #     ffmpeg -i $file.FullName -vf scale=$targetWidth:$newHeight $outputFile -y
-    #     Write-Host "  Resized and converted to WebP: $($file.Name) -> $($file.BaseName).webp ($targetWidth x $newHeight)"
-    # } else {
-        # Convert without resizing
-        ffmpeg -i $file.FullName $outputFile -y
-        Write-Host "  Converted to WebP: $($file.Name) -> $($file.BaseName).webp ($width x $height)"
-    # }
+    # Always create a WebP version at original size
+    $outputFileWebP = $file.DirectoryName + "\" + $file.BaseName + "_original.webp"
+    ffmpeg -i $file.FullName $outputFileWebP -y
+    
+    Write-Host "  Converted to WebP (original size): $($file.Name) -> $($file.BaseName)_original.webp"
 }
 
 Write-Host "Conversion complete. Processed $totalFiles files."
