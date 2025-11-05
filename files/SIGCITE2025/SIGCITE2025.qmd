@@ -1,0 +1,250 @@
+---
+title: "Pedalogical"
+subtitle: "AI-Grounded Vulnerability Feedback for Non‑Security CS Courses"
+authors:
+  - name: Andrew Sanders
+    affiliation: Augusta University
+    email: asanders4@augusta.edu
+  - name: Gursimran S. Walia, Ph.D.
+    affiliation: Augusta University
+    email: gwalia@augusta.edu
+    website: https://gursimransinghwalia.com
+  - name: Lucas P. Cordova, Ph.D.
+    website: https://lpcordova.com
+    affiliation: Willamette University
+    email: lpcordova@willamette.edu
+  - name: Teo J. Mendoza
+    affiliation: Willamette University
+    email: tjmendoza@willamette.edu
+    website: https://teomendoza.github.io
+format:
+  revealjs:
+    output-file: fie25-slides
+    scrollable: true
+    slide-level: 2
+    incremental: false
+    chalkboard: false
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    menu:
+      side: left
+    date-format: "MMMM D, YYYY"
+    toc: false
+    slide-number: c/t
+    show-slide-number: all
+    hash: true
+    controls: true
+    progress: false
+    history: true
+    center: false
+    transition: slide
+    code-fold: false
+    code-tools: true
+    code-line-numbers: true
+    highlight-style: github
+    smaller: true
+    auto-scale: true
+    fragments: true
+    theme: [default]
+execute:
+  echo: false
+  warning: false
+page-layout: full
+abstract: |
+    This talk presents the Pedalogical project, a web-based platform that provides AI-generated vulnerability feedback for non-security CS courses.
+bibliography: references.bib
+csl: ieee.csl
+---
+
+# TL;DR {.section background-color="#2288f5ff"}
+
+## ***We propose a new tool and pedagogical approach to improve cybersecurity education.***
+
+# Problem & Motivation {.section background-color="#2288f5ff"}
+
+<!-- ## We Need to Improve Education in Developing Secure Code
+
+- Software vulnerability exploitation remains a leading vector in breaches; secure coding must be integrated early [@verizonVerizon2023Data; @NISTSoftwareAssurance; @abetAccreditationChanges].  
+- Existing static analyzers flag issues but rarely deliver **actionable, level-appropriate pedagogy** [@CWEFrequentlyAsked; @hazimhanifRiseSoftwareVulnerability2021].
+
+## Prior Findings
+
+- Vulnerabilities **increase and diversify** as students progress from CS1 → advanced courses [@sandersAnalysisSoftwareVulnerabilities2024].  
+- Many CS programs lack sustained, program-wide security practice; students introduce vulnerabilities in routine coursework [@johnzorabedianVeracodeSurveyResearch; @sandersAnalysisSoftwareVulnerabilities2024; @sandersAssessingCommonSoftware2024].  
+- Mismatch between vulnerabilities students actually produce and those emphasized in detection research [@sandersAssessingCommonSoftware2024; @yilmazUnderstandingSecurityVulnerabilities2022].  
+- Time pressure & functionality-first norms drive insecure patterns; targeted feedback can help [@johnzorabedianVeracodeSurveyResearch; @yilmazUnderstandingSecurityVulnerabilities2022]. -->
+  
+## We Need to Improve Education in Developing Secure Code
+
+> **Security failures start early.**  
+> Students often learn to write code before they learn to write *secure* code.
+
+- Software vulnerability exploitation remains a leading vector in breaches; secure coding must be integrated early [@verizonVerizon2023Data; @NISTSoftwareAssurance; @abetAccreditationChanges].  
+- Teaching students to use static analyzers early is important, but is very difficult due to the complexity of the output of these tools. 
+- Existing static analyzers flag issues but rarely deliver **actionable, level-appropriate pedagogy** [@CWEFrequentlyAsked; @hazimhanifRiseSoftwareVulnerability2021].
+
+---
+
+## Prior Findings: What We Know So Far
+
+> **Empirical evidence supports this gap.**
+
+- Vulnerabilities **increase and diversify** as students progress from CS1 → advanced courses [@sandersAnalysisSoftwareVulnerabilities2024].  
+- Many CS programs lack sustained, program-wide security practice; students introduce vulnerabilities in routine coursework [@johnzorabedianVeracodeSurveyResearch; @sandersAnalysisSoftwareVulnerabilities2024; @sandersAssessingCommonSoftware2024].  
+- Mismatch between vulnerabilities students actually produce and those emphasized in detection research [@sandersAssessingCommonSoftware2024; @yilmazUnderstandingSecurityVulnerabilities2022].  
+- Time pressure & functionality-first norms drive insecure patterns; targeted feedback can help [@johnzorabedianVeracodeSurveyResearch; @yilmazUnderstandingSecurityVulnerabilities2022].
+
+
+## Research Gap
+
+
+- Need an **evidence-based, scalable mechanism** that:  
+  - Grounds detection in a **truthful analyzer** [@CWEFrequentlyAsked]  
+  - **Adapts feedback** to student level (beginner → advanced) [@sweller2019cognitive]  
+  - Supports **longitudinal study** across multiple courses/institutions  
+  - Collects telemetry for **learning analytics**
+
+
+# Proposed Approach {.section background-color="#2288f5ff"}
+
+## Pedalogical
+
+- **Pedalogical** = Static Analysis (truth base) **+** LLM (tailored feedback)
+  
+  - Analyzer: SonarQube CE (CWE mapping) → issues & hotspots [@CWEFrequentlyAsked]  
+  - LLM: transforms findings into **scaffolded, actionable guidance** (tailored levels) [@sweller2019cognitive]  
+
+## System Pipeline
+
+```{mermaid}
+flowchart TD
+    A["Code Submission"] --> B["SonarQube Analysis<br/>(CWE mapping)"]
+    B --> C["LLM Feedback<br/>(Level-appropriate)"]
+    C --> D["Student View &<br/>Instructor Reports"]
+```
+
+<small>Grounded analyzer reduces hallucination risk; LLM provides audience-appropriate feedback.</small>
+
+## Pedagogical Learning Theories
+
+- Integrates proven learning theories into the system design to enhance the learning experience:
+  
+  - **Cognitive Load Theory** [@sweller2019cognitive]: convert verbose analyzer output → concise, relevant guidance (reduce extraneous load).
+  - **Zone of Proximal Development** [@vygotsky1978mind]: feedback level aligned to course maturity (scaffolding). 
+
+## Pedalogical Application
+
+![Figure: Pedalogical Application](images/peda1.png){width="100%"}
+
+## Pedalogical Question Nodes
+
+![Figure: Pedalogical Question Nodes](images/peda2.png){width="100%"}
+
+## Pedalogical LLM Question Generation
+
+![Figure: Pedalogical LLM Question Generation](images/peda3.png){width="100%"}
+
+## Cybersecurity: Sample Student Feedback
+
+![Figure: Sample Student Feedback](images/student.png){width="100%"}
+
+
+## What Instructors Get
+
+- Cohort dashboard: per-assignment vulnerability counts & trends.  
+- Downloadable reports: analyzer findings, prompts/responses, submission diffs.  
+- Configurable **feedback detail level** for scaffolding.
+
+## Sample Instructor Report
+
+![Figure: Sample Instructor Report](images/instructor.png){width="100%"}
+
+
+# Proposed Study Context {.section background-color="#2288f5ff"}
+
+## Research Questions
+
+::: {.columns}
+::: {.column width="48%"}
+<div style="border: 2px solid #0066cc; border-radius: 8px; padding: 15px; background-color: #f0f8ff; height: 100%;">
+
+**RQ1:** Is AI-generated vulnerability feedback associated with **reduced vulnerabilities** in revised submissions?
+<br/>
+<br/>
+</div>
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+<div style="border: 2px solid #0066cc; border-radius: 8px; padding: 15px; background-color: #f0f8ff; height: 100%;">
+
+**RQ2:** Does exposure to AI-generated vulnerability feedback **improve secure coding practices** over time?
+
+</div>
+:::
+:::
+
+## Proposed Study Context
+
+- Multi-course, multi-institutional.
+- Undergraduate courses (intro → advanced; multiple sections; in-person & online).
+- Incentivized via **bonus points** contingent on meeting minimum functionality and reducing vulnerabilities.  
+
+## Data & Measures
+
+- **Static analysis artifacts:** CWE-tagged vulnerabilities, security hotspots, bugs, code smells.  
+- **Engagement telemetry:** time on feedback, resubmission frequency, interaction with explanations.  
+- **Learning signals:** pre/post patterns across assignments; regression models of engagement → reduction.  
+- **Qualitative:** end-of-semester survey on usefulness & strategies.
+
+## Analysis Plan
+
+- Longitudinal within-course and cross-course comparisons.  
+- Regression modeling: engagement metrics → vulnerability change.  
+- Category-level success: which CWE types improve most?  
+- Sensitivity to bonus-point variability across courses (limitations acknowledged).
+
+## Expected Contributions
+
+- A **replicable pipeline** for secure-coding feedback integrated into non-security courses.  
+- Evidence that **grounded LLM feedback** can reduce vulnerabilities and shape habits .  
+- A platform for **program-level learning analytics** on secure coding.
+
+## Anticipated Threats & Limitations
+
+- Bonus-point schemes differ across courses → potential confounds.  
+- Structured prompts mitigate LLM variability, but do not eliminate it [@shenChatGPT2023].  
+
+# Encouraging Early Analysis {.section background-color="#2288f5ff"}
+
+## Pedalogical in a CS2 (Data Structures) Course
+
+- Students designed and selected data structures for a medium-sized programming project.
+- Experimental group used the Pedalogical chatbot for guided reasoning and scaffolding, while the control group used a generic ChatGPT-4.0 wrapper, enabling comparison of design quality, reasoning depth, and tool engagement.
+- Students in the experimental group performed significantly better on project outcomes, suggesting increased metacognitive awareness and problem-solving strategies based on rubric-based grading.
+
+## Call to Action
+
+- Adopt Pedalogical in non-security courses to **normalize secure coding**.  
+- Collaborate on **cross-institutional studies** and shared analytics.  
+- Extend to additional languages & rulesets; explore adaptive feedback policies.
+
+# Thank You! {.section background-color="#2288f5ff"}
+
+## Contact Information
+<br/>
+<br/>
+
+  <H2>👨‍💻 ***Lucas Cordova***</H2>
+
+  - 📬 [lpcordova@willamette.edu](mailto:lpcordova@willamette.edu)
+  - 🌐 [lpcordova.com](https://lpcordova.com)
+
+# References {.section background-color="#2288f5ff"}
+
+## References
+
+::: {#refs .references}
+:::
