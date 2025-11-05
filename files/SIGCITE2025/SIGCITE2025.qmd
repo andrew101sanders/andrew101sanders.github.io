@@ -45,7 +45,7 @@ format:
     smaller: true
     auto-scale: true
     fragments: true
-    theme: [default]
+    theme: [style.scss]
 execute:
   echo: false
   warning: false
