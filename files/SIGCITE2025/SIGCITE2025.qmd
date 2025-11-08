@@ -1,6 +1,6 @@
 ---
-title: "Pedalogical"
-subtitle: "AI-Grounded Vulnerability Feedback for Non‑Security CS Courses"
+title: "Cognitive-Aware Plugin for Vulnerability Feedback"
+# subtitle: "AI-Grounded Vulnerability Feedback"
 authors:
   - name: Andrew Sanders
     affiliation: Augusta University
@@ -13,23 +13,21 @@ authors:
     website: https://lpcordova.com
     affiliation: Willamette University
     email: lpcordova@willamette.edu
-  - name: Teo J. Mendoza
-    affiliation: Willamette University
-    email: tjmendoza@willamette.edu
-    website: https://teomendoza.github.io
 format:
   revealjs:
-    output-file: fie25-slides
+    output-file: SIGCITE2025-slides
     scrollable: true
     slide-level: 2
     incremental: false
     chalkboard: false
     fig-cap-location: bottom
     tbl-cap-location: top
+    breadcrumbs: true
     menu:
       side: left
     date-format: "MMMM D, YYYY"
     toc: false
+    # toc-depth: 1
     slide-number: c/t
     show-slide-number: all
     hash: true
@@ -43,9 +41,13 @@ format:
     code-line-numbers: true
     highlight-style: github
     smaller: true
-    auto-scale: true
+    min-scale: 1
+    max-scale: 1
     fragments: true
+    mermaid:
+      theme: forest
     theme: [style.scss]
+    mermaid-format: js
 execute:
   echo: false
   warning: false
@@ -56,191 +58,101 @@ bibliography: references.bib
 csl: ieee.csl
 ---
 
-# TL;DR {.section background-color="#2288f5ff"}
+# TL;DR {background-color="#3287efff"}
 
-## ***We propose a new tool and pedagogical approach to improve cybersecurity education.***
+::: r-fit-text
+**We propose Cognitive-Aware Plugin for Vulnerability Feedback (CAPV), a Visual Studio Code plugin that integrates *static analysis*, *real-time cognitive and attentiveness metrics* from eye-tracking and webcams, and *large language models* to generate adaptive, personalized feedback for secure coding education.**
+:::
 
-# Problem & Motivation {.section background-color="#2288f5ff"}
+## Motivation
 
-<!-- ## We Need to Improve Education in Developing Secure Code
+-   Software vulnerability exploitation continues to be an issue and should be trained against [@sandersAnalysisSoftwareVulnerabilities2024; @yilmazUnderstandingSecurityVulnerabilities2022; @jointtaskforceoncomputingcurriculaassociationforcomputingmachineryacmandieeecomputersocietyComputerScienceCurricula2013; @departmentofhomelandsecurityus-certSoftwareAssurance; @verizonVerizon2023Data; @johnzorabedianVeracodeSurveyResearch]
+-   Students graduate with security knowledge deficiencies and write insecure code [@lamIdentifyingGapsSecure2022; @sandersAnalysisSoftwareVulnerabilities2024]
+-   Many existing approaches on the path to addressing this [@gasibaRankingSecureCoding2020; @kennetha.williamsTeachingSecureCoding2014; @dieterpawelczakTeachingSecurityIntroductory2020; @junzhuInteractiveSupportSecure2013; @chiTeachingSecureCoding2013]
+    -   Adjusting computing curricula to include aspects of secure coding [@gasibaRankingSecureCoding2020; @kennetha.williamsTeachingSecureCoding2014; @dieterpawelczakTeachingSecurityIntroductory2020]
+    -   Creating educational secure coding tools [@junzhuInteractiveSupportSecure2013; @chiTeachingSecureCoding2013]
 
-- Software vulnerability exploitation remains a leading vector in breaches; secure coding must be integrated early [@verizonVerizon2023Data; @NISTSoftwareAssurance; @abetAccreditationChanges].  
-- Existing static analyzers flag issues but rarely deliver **actionable, level-appropriate pedagogy** [@CWEFrequentlyAsked; @hazimhanifRiseSoftwareVulnerability2021].
+## Prior Work: Large Language Models (LLM)
 
-## Prior Findings
+-   Use to help teach students secure coding?
+    -   Used to generate tailored feedback in education [@liuTraditionalTeachingLarge2024]
+    -   Shown potential in software vulnerability detection [@tambergHarnessingLargeLanguage2024]
+    -   Used with static analysis tool outputs to mitigate cognitive load and create tailored feedback [@Sanders2025Pedalogical]
+-   Issues?
+    -   Direct use by students has weak learning outcomes [@prather2023robots; @macneil2023experiences]
+    -   Students are weak at creating effective prompts [@denny2023conversing]
 
-- Vulnerabilities **increase and diversify** as students progress from CS1 → advanced courses [@sandersAnalysisSoftwareVulnerabilities2024].  
-- Many CS programs lack sustained, program-wide security practice; students introduce vulnerabilities in routine coursework [@johnzorabedianVeracodeSurveyResearch; @sandersAnalysisSoftwareVulnerabilities2024; @sandersAssessingCommonSoftware2024].  
-- Mismatch between vulnerabilities students actually produce and those emphasized in detection research [@sandersAssessingCommonSoftware2024; @yilmazUnderstandingSecurityVulnerabilities2022].  
-- Time pressure & functionality-first norms drive insecure patterns; targeted feedback can help [@johnzorabedianVeracodeSurveyResearch; @yilmazUnderstandingSecurityVulnerabilities2022]. -->
-  
-## We Need to Improve Education in Developing Secure Code
+## Prior Work: Other Approaches?
 
-> **Security failures start early.**  
-> Students often learn to write code before they learn to write *secure* code.
+-   Work has been done to study attention and cognitive patterns of students in classrooms from multi-modal data
+    -   Attentiveness and comprehension prediction from webcams and/or eyetrackers [@nicats2021; @Elbawab2023MachineLA; @Xie2023StudentED]
+-   Adaptive micro-learning system for managing cognitive load [@Zhu2024OptimizingCL]
+-   Opportunities?
+    -   Incorporating cognitive/attention data for secure coding feedback
+    -   Using cognitive/attention data with LLMs for generating tailored feedback
 
-- Software vulnerability exploitation remains a leading vector in breaches; secure coding must be integrated early [@verizonVerizon2023Data; @NISTSoftwareAssurance; @abetAccreditationChanges].  
-- Teaching students to use static analyzers early is important, but is very difficult due to the complexity of the output of these tools. 
-- Existing static analyzers flag issues but rarely deliver **actionable, level-appropriate pedagogy** [@CWEFrequentlyAsked; @hazimhanifRiseSoftwareVulnerability2021].
+## Proposed Approach: CAPV
 
----
+-   Cognitive-Aware Plugin for Vulnerability Feedback
+-   Effective software vulnerability feedback so programmers can learn to write more secure code
+-   Three components, inspired from existing research:
+    -   Vulnerability Analysis using static analysis tools. Provides grounding to mitigate LLM hallucinations.
+    -   Cognitive/Attention prediction using machine learning
+    -   LLM to provide effective, tailored feedback
 
-## Prior Findings: What We Know So Far
+## Theoretical Grounding
 
-> **Empirical evidence supports this gap.**
+-   Cognitive Load Theory [@sweller2019cognitive]
+    -   Reduce extraneous load by filtering raw outputs from static analysis
+    -   Use cognitive/attentiveness prediction to match vulnerability difficulty to current working memory capacity
+-   Zone of Proximal Development [@Vygotsky:78]
+    -   Use LLM to provide tailored scaffolding based on student expertise and engagement with tool
 
-- Vulnerabilities **increase and diversify** as students progress from CS1 → advanced courses [@sandersAnalysisSoftwareVulnerabilities2024].  
-- Many CS programs lack sustained, program-wide security practice; students introduce vulnerabilities in routine coursework [@johnzorabedianVeracodeSurveyResearch; @sandersAnalysisSoftwareVulnerabilities2024; @sandersAssessingCommonSoftware2024].  
-- Mismatch between vulnerabilities students actually produce and those emphasized in detection research [@sandersAssessingCommonSoftware2024; @yilmazUnderstandingSecurityVulnerabilities2022].  
-- Time pressure & functionality-first norms drive insecure patterns; targeted feedback can help [@johnzorabedianVeracodeSurveyResearch; @yilmazUnderstandingSecurityVulnerabilities2022].
-
-
-## Research Gap
-
-
-- Need an **evidence-based, scalable mechanism** that:  
-  - Grounds detection in a **truthful analyzer** [@CWEFrequentlyAsked]  
-  - **Adapts feedback** to student level (beginner → advanced) [@sweller2019cognitive]  
-  - Supports **longitudinal study** across multiple courses/institutions  
-  - Collects telemetry for **learning analytics**
-
-
-# Proposed Approach {.section background-color="#2288f5ff"}
-
-## Pedalogical
-
-- **Pedalogical** = Static Analysis (truth base) **+** LLM (tailored feedback)
-  
-  - Analyzer: SonarQube CE (CWE mapping) → issues & hotspots [@CWEFrequentlyAsked]  
-  - LLM: transforms findings into **scaffolded, actionable guidance** (tailored levels) [@sweller2019cognitive]  
-
-## System Pipeline
+## CAPV System Architecture
 
 ```{mermaid}
-flowchart TD
-    A["Code Submission"] --> B["SonarQube Analysis<br/>(CWE mapping)"]
-    B --> C["LLM Feedback<br/>(Level-appropriate)"]
-    C --> D["Student View &<br/>Instructor Reports"]
+flowchart LR
+    A["Gaze Data<br/>(eyetracker)"] -->
+    B["Cognitive Level Prediction Module"]
+    C["Face Images<br/>(webcam)"] --> D["Attentiveness Prediction Module<br/>(Convolutional Neural Network)"]
+    E["Code File"] --> F["Vulnerability Analysis<br/>(SonarQube)"]
+    B --> G["Vulnerabilty Selector Module"]
+    D --> G
+    F --> G
+    G --> H["Large Language Model<br/>(Custom Few-Shot prompt)"]
+    H --> I["Present Vulnerability Feedback to User"]
+
+    
 ```
 
-<small>Grounded analyzer reduces hallucination risk; LLM provides audience-appropriate feedback.</small>
+Figure: CAPV System Architecture Flowchart
 
-## Pedagogical Learning Theories
+## Example
 
-- Integrates proven learning theories into the system design to enhance the learning experience:
-  
-  - **Cognitive Load Theory** [@sweller2019cognitive]: convert verbose analyzer output → concise, relevant guidance (reduce extraneous load).
-  - **Zone of Proximal Development** [@vygotsky1978mind]: feedback level aligned to course maturity (scaffolding). 
-
-## Pedalogical Application
-
-![Figure: Pedalogical Application](images/peda1.png){width="100%"}
-
-## Pedalogical Question Nodes
-
-![Figure: Pedalogical Question Nodes](images/peda2.png){width="100%"}
-
-## Pedalogical LLM Question Generation
-
-![Figure: Pedalogical LLM Question Generation](images/peda3.png){width="100%"}
-
-## Cybersecurity: Sample Student Feedback
-
-![Figure: Sample Student Feedback](images/student.png){width="100%"}
+::: {layout="[[1,1]]" layout-valign="bottom"}
+![Figure: CAPV Hardware Setup](images/Hardware.png)
 
 
-## What Instructors Get
-
-- Cohort dashboard: per-assignment vulnerability counts & trends.  
-- Downloadable reports: analyzer findings, prompts/responses, submission diffs.  
-- Configurable **feedback detail level** for scaffolding.
-
-## Sample Instructor Report
-
-![Figure: Sample Instructor Report](images/instructor.png){width="100%"}
-
-
-# Proposed Study Context {.section background-color="#2288f5ff"}
-
-## Research Questions
-
-::: {.columns}
-::: {.column width="48%"}
-<div style="border: 2px solid #0066cc; border-radius: 8px; padding: 15px; background-color: #f0f8ff; height: 100%;">
-
-**RQ1:** Is AI-generated vulnerability feedback associated with **reduced vulnerabilities** in revised submissions?
-<br/>
-<br/>
-</div>
+![Figure: CAPV Application Results on Program with Assignments to Variables Without Use](images/capv.png)
 :::
 
-::: {.column width="4%"}
-:::
-
-::: {.column width="48%"}
-<div style="border: 2px solid #0066cc; border-radius: 8px; padding: 15px; background-color: #f0f8ff; height: 100%;">
-
-**RQ2:** Does exposure to AI-generated vulnerability feedback **improve secure coding practices** over time?
-
-</div>
-:::
-:::
-
-## Proposed Study Context
-
-- Multi-course, multi-institutional.
-- Undergraduate courses (intro → advanced; multiple sections; in-person & online).
-- Incentivized via **bonus points** contingent on meeting minimum functionality and reducing vulnerabilities.  
-
-## Data & Measures
-
-- **Static analysis artifacts:** CWE-tagged vulnerabilities, security hotspots, bugs, code smells.  
-- **Engagement telemetry:** time on feedback, resubmission frequency, interaction with explanations.  
-- **Learning signals:** pre/post patterns across assignments; regression models of engagement → reduction.  
-- **Qualitative:** end-of-semester survey on usefulness & strategies.
-
-## Analysis Plan
-
-- Longitudinal within-course and cross-course comparisons.  
-- Regression modeling: engagement metrics → vulnerability change.  
-- Category-level success: which CWE types improve most?  
-- Sensitivity to bonus-point variability across courses (limitations acknowledged).
-
-## Expected Contributions
-
-- A **replicable pipeline** for secure-coding feedback integrated into non-security courses.  
-- Evidence that **grounded LLM feedback** can reduce vulnerabilities and shape habits .  
-- A platform for **program-level learning analytics** on secure coding.
-
-## Anticipated Threats & Limitations
-
-- Bonus-point schemes differ across courses → potential confounds.  
-- Structured prompts mitigate LLM variability, but do not eliminate it [@shenChatGPT2023].  
-
-# Encouraging Early Analysis {.section background-color="#2288f5ff"}
-
-## Pedalogical in a CS2 (Data Structures) Course
-
-- Students designed and selected data structures for a medium-sized programming project.
-- Experimental group used the Pedalogical chatbot for guided reasoning and scaffolding, while the control group used a generic ChatGPT-4.0 wrapper, enabling comparison of design quality, reasoning depth, and tool engagement.
-- Students in the experimental group performed significantly better on project outcomes, suggesting increased metacognitive awareness and problem-solving strategies based on rubric-based grading.
-
-## Call to Action
-
-- Adopt Pedalogical in non-security courses to **normalize secure coding**.  
-- Collaborate on **cross-institutional studies** and shared analytics.  
-- Extend to additional languages & rulesets; explore adaptive feedback policies.
+## Anticipated Outcomes
+- Reductions in vulnerability introduction rates
+- Improved efficiency in vulnerability detection and remediation
+- Heightened user awareness and adoption of secure coding practices
 
 # Thank You! {.section background-color="#2288f5ff"}
 
 ## Contact Information
-<br/>
-<br/>
 
-  <H2>👨‍💻 ***Lucas Cordova***</H2>
+<br/> <br/>
 
-  - 📬 [lpcordova@willamette.edu](mailto:lpcordova@willamette.edu)
-  - 🌐 [lpcordova.com](https://lpcordova.com)
+<H2>👨‍💻 ***Andrew Sanders***</H2>
+
+-   📬 [ASanders4\@augusta.edu](mailto:asanders4@augusta.edu)
+-   🌐 [andrewsanders.site](https://andrewsanders.site)
+
+![](images/QR.png){.absolute right="2%" top="15%" width="40%"}
 
 # References {.section background-color="#2288f5ff"}
 

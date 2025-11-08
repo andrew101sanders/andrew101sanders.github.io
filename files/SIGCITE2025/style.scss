@@ -3,7 +3,7 @@
 // Custom colours and variables
 
 $jet: #131516;
-$accent: #107895;
+$accent: #17439c;
 $accent2: #9a2515;
 $accent2: #e64173;
 $right-arrow: "\2192"; // Unicode character for right arrow
@@ -26,7 +26,7 @@ $presentation-heading-color: $jet !default;
 $presentation-heading-font-weight: lighter;
 //$presentation-heading-line-height: 2;
 //$presentation-block-margin: 28px;
-$presentation-font-size-root: 32px;
+$presentation-font-size-root: 30px;
 
 // Colors
 $body-bg: #f0f1eb !default;
@@ -52,9 +52,10 @@ $selection-bg: #26351c !default;
 // Title slide - make title and subtitle bigger
 #title-slide {
   text-align: left;
+
   .title {
     color: $body-color;
-    font-size: 3.8em !important; // Increased from 3.0em
+    font-size: 3em !important; // Increased from 3.0em
     font-weight: 400 !important;
   }
 
@@ -70,7 +71,7 @@ $selection-bg: #26351c !default;
   .quarto-title-affiliation,
   .quarto-title-author-email {
     font-style: italic;
-    // font-size: 80%;
+    font-size: 80%;
     // color: #7F7F7F;
   }
 
@@ -147,6 +148,10 @@ $selection-bg: #26351c !default;
   font-size: 1.25em !important; // Increase from base to make bullets more prominent
   line-height: 1.6 !important; // Better line spacing for readability
   padding-left: 1.2em !important;
+
+  li::marker {
+    color: mix($accent, white, 70%);
+  }
 }
 
 .reveal ul li,
@@ -161,6 +166,7 @@ $selection-bg: #26351c !default;
   font-size: 1.0em !important; // Smaller than first-level bullets
   margin-top: 0.6em !important; // More vertical space above nested list
   margin-bottom: 0.6em !important; // More vertical space below nested list
+  list-style: none;
 
   li:before {
     content: $right-arrow;

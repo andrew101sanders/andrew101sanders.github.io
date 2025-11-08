@@ -9,7 +9,7 @@
 <link href="SIGCITE2025_files/libs/quarto-html/quarto-syntax-highlighting-065a5179aebd64318d7ea99d77b64a9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.25">
 
-  <title>Pedalogical</title>
+  <title>Cognitive-Aware Plugin for Vulnerability Feedback</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -48,7 +48,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="SIGCITE2025_files/libs/revealjs/dist/theme/quarto-e8df628b641912e43b821ccf598bbc0c.css">
+  <link rel="stylesheet" href="SIGCITE2025_files/libs/revealjs/dist/theme/quarto-06ff48c867bac4245dfdbe0c1b037fbe.css">
   <link href="SIGCITE2025_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="SIGCITE2025_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="SIGCITE2025_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -141,6 +141,7 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="forest">
   <script src="SIGCITE2025_files/libs/quarto-diagram/mermaid.min.js"></script>
   <script src="SIGCITE2025_files/libs/quarto-diagram/mermaid-init.js"></script>
   <link href="SIGCITE2025_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -150,8 +151,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Pedalogical</h1>
-  <p class="subtitle">AI-Grounded Vulnerability Feedback for Non‑Security CS Courses</p>
+  <h1 class="title">Cognitive-Aware Plugin for Vulnerability Feedback</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -187,252 +187,142 @@ Lucas P. Cordova, Ph.D.
             Willamette University
           </p>
     </div>
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Teo J. Mendoza 
-</div>
-<div class="quarto-title-author-email">
-<a href="mailto:tjmendoza@willamette.edu">tjmendoza@willamette.edu</a>
-</div>
-        <p class="quarto-title-affiliation">
-            Willamette University
-          </p>
-    </div>
 </div>
 
 </section>
 <section>
-<section id="tldr" class="title-slide slide level1 section center" data-background-color="#2288f5ff">
+<section id="tldr" class="title-slide slide level1 center" data-background-color="#3287efff">
 <h1>TL;DR</h1>
-
+<div class="r-fit-text">
+<p><strong>We propose Cognitive-Aware Plugin for Vulnerability Feedback (CAPV), a Visual Studio Code plugin that integrates <em>static analysis</em>, <em>real-time cognitive and attentiveness metrics</em> from eye-tracking and webcams, and <em>large language models</em> to generate adaptive, personalized feedback for secure coding education.</strong></p>
+</div>
 </section>
-<section id="we-propose-a-new-tool-and-pedagogical-approach-to-improve-cybersecurity-education." class="slide level2">
-<h2><strong><em>We propose a new tool and pedagogical approach to improve cybersecurity education.</em></strong></h2>
-</section></section>
-<section>
-<section id="problem-motivation" class="title-slide slide level1 section center" data-background-color="#2288f5ff">
-<h1>Problem &amp; Motivation</h1>
-<!-- ## We Need to Improve Education in Developing Secure Code
-
-- Software vulnerability exploitation remains a leading vector in breaches; secure coding must be integrated early [@verizonVerizon2023Data; @NISTSoftwareAssurance; @abetAccreditationChanges].  
-- Existing static analyzers flag issues but rarely deliver **actionable, level-appropriate pedagogy** [@CWEFrequentlyAsked; @hazimhanifRiseSoftwareVulnerability2021].
-
-## Prior Findings
-
-- Vulnerabilities **increase and diversify** as students progress from CS1 → advanced courses [@sandersAnalysisSoftwareVulnerabilities2024].  
-- Many CS programs lack sustained, program-wide security practice; students introduce vulnerabilities in routine coursework [@johnzorabedianVeracodeSurveyResearch; @sandersAnalysisSoftwareVulnerabilities2024; @sandersAssessingCommonSoftware2024].  
-- Mismatch between vulnerabilities students actually produce and those emphasized in detection research [@sandersAssessingCommonSoftware2024; @yilmazUnderstandingSecurityVulnerabilities2022].  
-- Time pressure & functionality-first norms drive insecure patterns; targeted feedback can help [@johnzorabedianVeracodeSurveyResearch; @yilmazUnderstandingSecurityVulnerabilities2022]. -->
-</section>
-<section id="we-need-to-improve-education-in-developing-secure-code" class="slide level2">
-<h2>We Need to Improve Education in Developing Secure Code</h2>
-<blockquote>
-<p><strong>Security failures start early.</strong><br>
-Students often learn to write code before they learn to write <em>secure</em> code.</p>
-</blockquote>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
 <ul>
-<li>Software vulnerability exploitation remains a leading vector in breaches; secure coding must be integrated early <span class="citation" data-cites="verizonVerizon2023Data NISTSoftwareAssurance abetAccreditationChanges"><a href="#/references-1" role="doc-biblioref" onclick="">[1]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[2]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[3]</a></span>.<br>
-</li>
-<li>Teaching students to use static analyzers early is important, but is very difficult due to the complexity of the output of these tools.</li>
-<li>Existing static analyzers flag issues but rarely deliver <strong>actionable, level-appropriate pedagogy</strong> <span class="citation" data-cites="CWEFrequentlyAsked hazimhanifRiseSoftwareVulnerability2021"><a href="#/references-1" role="doc-biblioref" onclick="">[4]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[5]</a></span>.</li>
-</ul>
-</section>
-<section id="prior-findings-what-we-know-so-far" class="slide level2">
-<h2>Prior Findings: What We Know So Far</h2>
-<blockquote>
-<p><strong>Empirical evidence supports this gap.</strong></p>
-</blockquote>
+<li>Software vulnerability exploitation continues to be an issue and should be trained against <span class="citation" data-cites="sandersAnalysisSoftwareVulnerabilities2024 yilmazUnderstandingSecurityVulnerabilities2022 jointtaskforceoncomputingcurriculaassociationforcomputingmachineryacmandieeecomputersocietyComputerScienceCurricula2013 departmentofhomelandsecurityus-certSoftwareAssurance verizonVerizon2023Data johnzorabedianVeracodeSurveyResearch"><a href="#/references-1" role="doc-biblioref" onclick="">[1]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[2]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[3]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[4]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[5]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[6]</a></span></li>
+<li>Students graduate with security knowledge deficiencies and write insecure code <span class="citation" data-cites="lamIdentifyingGapsSecure2022 sandersAnalysisSoftwareVulnerabilities2024"><a href="#/references-1" role="doc-biblioref" onclick="">[1]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[7]</a></span></li>
+<li>Many existing approaches on the path to addressing this <span class="citation" data-cites="gasibaRankingSecureCoding2020 kennetha.williamsTeachingSecureCoding2014 dieterpawelczakTeachingSecurityIntroductory2020 junzhuInteractiveSupportSecure2013 chiTeachingSecureCoding2013"><a href="#/references-1" role="doc-biblioref" onclick="">[8]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[9]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[10]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[11]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[12]</a></span>
 <ul>
-<li>Vulnerabilities <strong>increase and diversify</strong> as students progress from CS1 → advanced courses <span class="citation" data-cites="sandersAnalysisSoftwareVulnerabilities2024"><a href="#/references-1" role="doc-biblioref" onclick="">[6]</a></span>.<br>
-</li>
-<li>Many CS programs lack sustained, program-wide security practice; students introduce vulnerabilities in routine coursework <span class="citation" data-cites="johnzorabedianVeracodeSurveyResearch sandersAnalysisSoftwareVulnerabilities2024 sandersAssessingCommonSoftware2024"><a href="#/references-1" role="doc-biblioref" onclick="">[6]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[7]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[8]</a></span>.<br>
-</li>
-<li>Mismatch between vulnerabilities students actually produce and those emphasized in detection research <span class="citation" data-cites="sandersAssessingCommonSoftware2024 yilmazUnderstandingSecurityVulnerabilities2022"><a href="#/references-1" role="doc-biblioref" onclick="">[8]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[9]</a></span>.<br>
-</li>
-<li>Time pressure &amp; functionality-first norms drive insecure patterns; targeted feedback can help <span class="citation" data-cites="johnzorabedianVeracodeSurveyResearch yilmazUnderstandingSecurityVulnerabilities2022"><a href="#/references-1" role="doc-biblioref" onclick="">[7]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[9]</a></span>.</li>
-</ul>
-</section>
-<section id="research-gap" class="slide level2">
-<h2>Research Gap</h2>
-<ul>
-<li>Need an <strong>evidence-based, scalable mechanism</strong> that:
-<ul>
-<li>Grounds detection in a <strong>truthful analyzer</strong> <span class="citation" data-cites="CWEFrequentlyAsked"><a href="#/references-1" role="doc-biblioref" onclick="">[4]</a></span><br>
-</li>
-<li><strong>Adapts feedback</strong> to student level (beginner → advanced) <span class="citation" data-cites="sweller2019cognitive"><a href="#/references-1" role="doc-biblioref" onclick="">[10]</a></span><br>
-</li>
-<li>Supports <strong>longitudinal study</strong> across multiple courses/institutions<br>
-</li>
-<li>Collects telemetry for <strong>learning analytics</strong></li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="proposed-approach" class="title-slide slide level1 section center" data-background-color="#2288f5ff">
-<h1>Proposed Approach</h1>
-
-</section>
-<section id="pedalogical" class="slide level2">
-<h2>Pedalogical</h2>
-<ul>
-<li><p><strong>Pedalogical</strong> = Static Analysis (truth base) <strong>+</strong> LLM (tailored feedback)</p>
-<ul>
-<li>Analyzer: SonarQube CE (CWE mapping) → issues &amp; hotspots <span class="citation" data-cites="CWEFrequentlyAsked"><a href="#/references-1" role="doc-biblioref" onclick="">[4]</a></span><br>
-</li>
-<li>LLM: transforms findings into <strong>scaffolded, actionable guidance</strong> (tailored levels) <span class="citation" data-cites="sweller2019cognitive"><a href="#/references-1" role="doc-biblioref" onclick="">[10]</a></span></li>
+<li>Adjusting computing curricula to include aspects of secure coding <span class="citation" data-cites="gasibaRankingSecureCoding2020 kennetha.williamsTeachingSecureCoding2014 dieterpawelczakTeachingSecurityIntroductory2020"><a href="#/references-1" role="doc-biblioref" onclick="">[8]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[9]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[10]</a></span></li>
+<li>Creating educational secure coding tools <span class="citation" data-cites="junzhuInteractiveSupportSecure2013 chiTeachingSecureCoding2013"><a href="#/references-1" role="doc-biblioref" onclick="">[11]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[12]</a></span></li>
 </ul></li>
 </ul>
 </section>
-<section id="system-pipeline" class="slide level2">
-<h2>System Pipeline</h2>
+<section id="prior-work-large-language-models-llm" class="slide level2">
+<h2>Prior Work: Large Language Models (LLM)</h2>
+<ul>
+<li>Use to help teach students secure coding?
+<ul>
+<li>Used to generate tailored feedback in education <span class="citation" data-cites="liuTraditionalTeachingLarge2024"><a href="#/references-1" role="doc-biblioref" onclick="">[13]</a></span></li>
+<li>Shown potential in software vulnerability detection <span class="citation" data-cites="tambergHarnessingLargeLanguage2024"><a href="#/references-1" role="doc-biblioref" onclick="">[14]</a></span></li>
+<li>Used with static analysis tool outputs to mitigate cognitive load and create tailored feedback <span class="citation" data-cites="Sanders2025Pedalogical"><a href="#/references-1" role="doc-biblioref" onclick="">[15]</a></span></li>
+</ul></li>
+<li>Issues?
+<ul>
+<li>Direct use by students has weak learning outcomes <span class="citation" data-cites="prather2023robots macneil2023experiences"><a href="#/references-1" role="doc-biblioref" onclick="">[16]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[17]</a></span></li>
+<li>Students are weak at creating effective prompts <span class="citation" data-cites="denny2023conversing"><a href="#/references-1" role="doc-biblioref" onclick="">[18]</a></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="prior-work-other-approaches" class="slide level2">
+<h2>Prior Work: Other Approaches?</h2>
+<ul>
+<li>Work has been done to study attention and cognitive patterns of students in classrooms from multi-modal data
+<ul>
+<li>Attentiveness and comprehension prediction from webcams and/or eyetrackers <span class="citation" data-cites="nicats2021 Elbawab2023MachineLA Xie2023StudentED"><a href="#/references-1" role="doc-biblioref" onclick="">[19]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[20]</a>, <a href="#/references-1" role="doc-biblioref" onclick="">[21]</a></span></li>
+</ul></li>
+<li>Adaptive micro-learning system for managing cognitive load <span class="citation" data-cites="Zhu2024OptimizingCL"><a href="#/references-1" role="doc-biblioref" onclick="">[22]</a></span></li>
+<li>Opportunities?
+<ul>
+<li>Incorporating cognitive/attention data for secure coding feedback</li>
+<li>Using cognitive/attention data with LLMs for generating tailored feedback</li>
+</ul></li>
+</ul>
+</section>
+<section id="proposed-approach-capv" class="slide level2">
+<h2>Proposed Approach: CAPV</h2>
+<ul>
+<li>Cognitive-Aware Plugin for Vulnerability Feedback</li>
+<li>Effective software vulnerability feedback so programmers can learn to write more secure code</li>
+<li>Three components, inspired from existing research:
+<ul>
+<li>Vulnerability Analysis using static analysis tools. Provides grounding to mitigate LLM hallucinations.</li>
+<li>Cognitive/Attention prediction using machine learning</li>
+<li>LLM to provide effective, tailored feedback</li>
+</ul></li>
+</ul>
+</section>
+<section id="theoretical-grounding" class="slide level2">
+<h2>Theoretical Grounding</h2>
+<ul>
+<li>Cognitive Load Theory <span class="citation" data-cites="sweller2019cognitive"><a href="#/references-1" role="doc-biblioref" onclick="">[23]</a></span>
+<ul>
+<li>Reduce extraneous load by filtering raw outputs from static analysis</li>
+<li>Use cognitive/attentiveness prediction to match vulnerability difficulty to current working memory capacity</li>
+</ul></li>
+<li>Zone of Proximal Development <span class="citation" data-cites="Vygotsky:78"><a href="#/references-1" role="doc-biblioref" onclick="">[24]</a></span>
+<ul>
+<li>Use LLM to provide tailored scaffolding based on student expertise and engagement with tool</li>
+</ul></li>
+</ul>
+</section>
+<section id="capv-system-architecture" class="slide level2">
+<h2>CAPV System Architecture</h2>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart TD
-    A["Code Submission"] --&gt; B["SonarQube Analysis&lt;br/&gt;(CWE mapping)"]
-    B --&gt; C["LLM Feedback&lt;br/&gt;(Level-appropriate)"]
-    C --&gt; D["Student View &amp;&lt;br/&gt;Instructor Reports"]
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Gaze Data&lt;br/&gt;(eyetracker)"] --&gt;
+    B["Cognitive Level Prediction Module"]
+    C["Face Images&lt;br/&gt;(webcam)"] --&gt; D["Attentiveness Prediction Module&lt;br/&gt;(Convolutional Neural Network)"]
+    E["Code File"] --&gt; F["Vulnerability Analysis&lt;br/&gt;(SonarQube)"]
+    B --&gt; G["Vulnerabilty Selector Module"]
+    D --&gt; G
+    F --&gt; G
+    G --&gt; H["Large Language Model&lt;br/&gt;(Custom Few-Shot prompt)"]
+    H --&gt; I["Present Vulnerability Feedback to User"]
+
+    
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p><small>Grounded analyzer reduces hallucination risk; LLM provides audience-appropriate feedback.</small></p>
+<p>Figure: CAPV System Architecture Flowchart</p>
 </section>
-<section id="pedagogical-learning-theories" class="slide level2">
-<h2>Pedagogical Learning Theories</h2>
-<ul>
-<li><p>Integrates proven learning theories into the system design to enhance the learning experience:</p>
-<ul>
-<li><strong>Cognitive Load Theory</strong> <span class="citation" data-cites="sweller2019cognitive"><a href="#/references-1" role="doc-biblioref" onclick="">[10]</a></span>: convert verbose analyzer output → concise, relevant guidance (reduce extraneous load).</li>
-<li><strong>Zone of Proximal Development</strong> <span class="citation" data-cites="vygotsky1978mind"><a href="#/references-1" role="doc-biblioref" onclick="">[11]</a></span>: feedback level aligned to course maturity (scaffolding).</li>
-</ul></li>
-</ul>
-</section>
-<section id="pedalogical-application" class="slide level2">
-<h2>Pedalogical Application</h2>
-
-<img data-src="images/peda1.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure: Pedalogical Application</p></section>
-<section id="pedalogical-question-nodes" class="slide level2">
-<h2>Pedalogical Question Nodes</h2>
-
-<img data-src="images/peda2.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure: Pedalogical Question Nodes</p></section>
-<section id="pedalogical-llm-question-generation" class="slide level2">
-<h2>Pedalogical LLM Question Generation</h2>
-
-<img data-src="images/peda3.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure: Pedalogical LLM Question Generation</p></section>
-<section id="cybersecurity-sample-student-feedback" class="slide level2">
-<h2>Cybersecurity: Sample Student Feedback</h2>
-
-<img data-src="images/student.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure: Sample Student Feedback</p></section>
-<section id="what-instructors-get" class="slide level2">
-<h2>What Instructors Get</h2>
-<ul>
-<li>Cohort dashboard: per-assignment vulnerability counts &amp; trends.<br>
-</li>
-<li>Downloadable reports: analyzer findings, prompts/responses, submission diffs.<br>
-</li>
-<li>Configurable <strong>feedback detail level</strong> for scaffolding.</li>
-</ul>
-</section>
-<section id="sample-instructor-report" class="slide level2">
-<h2>Sample Instructor Report</h2>
-
-<img data-src="images/instructor.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Figure: Sample Instructor Report</p></section></section>
-<section>
-<section id="proposed-study-context" class="title-slide slide level1 section center" data-background-color="#2288f5ff">
-<h1>Proposed Study Context</h1>
-
-</section>
-<section id="research-questions" class="slide level2">
-<h2>Research Questions</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<div style="border: 2px solid #0066cc; border-radius: 8px; padding: 15px; background-color: #f0f8ff; height: 100%;">
-<p><strong>RQ1:</strong> Is AI-generated vulnerability feedback associated with <strong>reduced vulnerabilities</strong> in revised submissions? <br> <br></p>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<div class="quarto-layout-panel" data-layout="[[1,1]]">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Hardware.png"></p>
+<figcaption>Figure: CAPV Hardware Setup</figcaption>
+</figure>
 </div>
-</div><div class="column" style="width:4%;">
-
-</div><div class="column" style="width:48%;">
-<div style="border: 2px solid #0066cc; border-radius: 8px; padding: 15px; background-color: #f0f8ff; height: 100%;">
-<p><strong>RQ2:</strong> Does exposure to AI-generated vulnerability feedback <strong>improve secure coding practices</strong> over time?</p>
 </div>
-</div></div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/capv.png"></p>
+<figcaption>Figure: CAPV Application Results on Program with Assignments to Variables Without Use</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="proposed-study-context-1" class="slide level2">
-<h2>Proposed Study Context</h2>
+<section id="anticipated-outcomes" class="slide level2">
+<h2>Anticipated Outcomes</h2>
 <ul>
-<li>Multi-course, multi-institutional.</li>
-<li>Undergraduate courses (intro → advanced; multiple sections; in-person &amp; online).</li>
-<li>Incentivized via <strong>bonus points</strong> contingent on meeting minimum functionality and reducing vulnerabilities.</li>
-</ul>
-</section>
-<section id="data-measures" class="slide level2">
-<h2>Data &amp; Measures</h2>
-<ul>
-<li><strong>Static analysis artifacts:</strong> CWE-tagged vulnerabilities, security hotspots, bugs, code smells.<br>
-</li>
-<li><strong>Engagement telemetry:</strong> time on feedback, resubmission frequency, interaction with explanations.<br>
-</li>
-<li><strong>Learning signals:</strong> pre/post patterns across assignments; regression models of engagement → reduction.<br>
-</li>
-<li><strong>Qualitative:</strong> end-of-semester survey on usefulness &amp; strategies.</li>
-</ul>
-</section>
-<section id="analysis-plan" class="slide level2">
-<h2>Analysis Plan</h2>
-<ul>
-<li>Longitudinal within-course and cross-course comparisons.<br>
-</li>
-<li>Regression modeling: engagement metrics → vulnerability change.<br>
-</li>
-<li>Category-level success: which CWE types improve most?<br>
-</li>
-<li>Sensitivity to bonus-point variability across courses (limitations acknowledged).</li>
-</ul>
-</section>
-<section id="expected-contributions" class="slide level2">
-<h2>Expected Contributions</h2>
-<ul>
-<li>A <strong>replicable pipeline</strong> for secure-coding feedback integrated into non-security courses.<br>
-</li>
-<li>Evidence that <strong>grounded LLM feedback</strong> can reduce vulnerabilities and shape habits .<br>
-</li>
-<li>A platform for <strong>program-level learning analytics</strong> on secure coding.</li>
-</ul>
-</section>
-<section id="anticipated-threats-limitations" class="slide level2">
-<h2>Anticipated Threats &amp; Limitations</h2>
-<ul>
-<li>Bonus-point schemes differ across courses → potential confounds.<br>
-</li>
-<li>Structured prompts mitigate LLM variability, but do not eliminate it <span class="citation" data-cites="shenChatGPT2023"><a href="#/references-1" role="doc-biblioref" onclick="">[12]</a></span>.</li>
-</ul>
-</section></section>
-<section>
-<section id="encouraging-early-analysis" class="title-slide slide level1 section center" data-background-color="#2288f5ff">
-<h1>Encouraging Early Analysis</h1>
-
-</section>
-<section id="pedalogical-in-a-cs2-data-structures-course" class="slide level2">
-<h2>Pedalogical in a CS2 (Data Structures) Course</h2>
-<ul>
-<li>Students designed and selected data structures for a medium-sized programming project.</li>
-<li>Experimental group used the Pedalogical chatbot for guided reasoning and scaffolding, while the control group used a generic ChatGPT-4.0 wrapper, enabling comparison of design quality, reasoning depth, and tool engagement.</li>
-<li>Students in the experimental group performed significantly better on project outcomes, suggesting increased metacognitive awareness and problem-solving strategies based on rubric-based grading.</li>
-</ul>
-</section>
-<section id="call-to-action" class="slide level2">
-<h2>Call to Action</h2>
-<ul>
-<li>Adopt Pedalogical in non-security courses to <strong>normalize secure coding</strong>.<br>
-</li>
-<li>Collaborate on <strong>cross-institutional studies</strong> and shared analytics.<br>
-</li>
-<li>Extend to additional languages &amp; rulesets; explore adaptive feedback policies.</li>
+<li>Reductions in vulnerability introduction rates</li>
+<li>Improved efficiency in vulnerability detection and remediation</li>
+<li>Heightened user awareness and adoption of secure coding practices</li>
 </ul>
 </section></section>
 <section>
@@ -444,12 +334,13 @@ Students often learn to write code before they learn to write <em>secure</em> co
 <h2>Contact Information</h2>
 <p><br> <br></p>
 <h2>
-👨‍💻 <strong><em>Lucas Cordova</em></strong>
+👨‍💻 <strong><em>Andrew Sanders</em></strong>
 </h2>
 <ul>
-<li>📬 <a href="mailto:lpcordova@willamette.edu">lpcordova@willamette.edu</a></li>
-<li>🌐 <a href="https://lpcordova.com">lpcordova.com</a></li>
+<li>📬 <a href="mailto:asanders4@augusta.edu">ASanders4@augusta.edu</a></li>
+<li>🌐 <a href="https://andrewsanders.site">andrewsanders.site</a></li>
 </ul>
+<p><img data-src="images/QR.png" class="absolute" style="top: 15%; right: 2%; width: 40%; "></p>
 </section></section>
 <section>
 <section id="references" class="title-slide slide level1 section center" data-background-color="#2288f5ff">
@@ -459,41 +350,77 @@ Students often learn to write code before they learn to write <em>secure</em> co
 <section id="references-1" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
-<div id="ref-verizonVerizon2023Data" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Verizon, <span>“Verizon 2023 <span>Data Breach Investigations Report</span>,”</span> <em>Verizon Business</em>. Accessed: Oct. 30, 2024. [Online]. Available: <a href="https://www.verizon.com/business/resources/reports/dbir/">https://www.verizon.com/business/resources/reports/dbir/</a></div>
-</div>
-<div id="ref-NISTSoftwareAssurance" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline"><span>“<span>NIST Software Assurance Reference Dataset</span>,”</span> <em>NIST Software Assurance Reference Dataset</em>. Accessed: Feb. 22, 2023. [Online]. Available: <a href="https://samate.nist.gov/SARD">https://samate.nist.gov/SARD</a></div>
-</div>
-<div id="ref-abetAccreditationChanges" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">ABET, <span>“Accreditation <span>Changes</span>.”</span> Accessed: Feb. 02, 2023. [Online]. Available: <a href="https://www.abet.org/accreditation/accreditation-criteria/accreditation-changes/">https://www.abet.org/accreditation/accreditation-criteria/accreditation-changes/</a></div>
-</div>
-<div id="ref-CWEFrequentlyAsked" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline"><span>“<span>CWE</span> - <span>Frequently Asked Questions</span> (<span>FAQ</span>).”</span> Accessed: Mar. 08, 2023. [Online]. Available: <a href="https://cwe.mitre.org/about/faq.html">https://cwe.mitre.org/about/faq.html</a></div>
-</div>
-<div id="ref-hazimhanifRiseSoftwareVulnerability2021" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">Hazim Hanif, Mohd Hairul Nizam Md Nasir, Mohd Faizal Ab Razak, Ahmad Firdaus, and Nor Badrul Anuar, <span>“The rise of software vulnerability: <span>Taxonomy</span> of software vulnerabilities detection and machine learning approaches,”</span> <em>Journal of Network and Computer Applications</em>, vol. 179, p. 103009, Apr. 2021, doi: <a href="https://doi.org/10.1016/j.jnca.2021.103009">10.1016/j.jnca.2021.103009</a>.</div>
-</div>
 <div id="ref-sandersAnalysisSoftwareVulnerabilities2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">A. Sanders, G. S. Walia, and A. Allen, <span>“Analysis of <span>Software Vulnerabilities Introduced</span> in <span>Programming Submissions Across Curriculum</span> at <span>Two Higher Education Institutions</span>,”</span> in <em>2024 <span>IEEE Frontiers</span> in <span>Education Conference</span> (<span>FIE</span>)</em>, Oct. 2024.</div>
-</div>
-<div id="ref-johnzorabedianVeracodeSurveyResearch" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">John Zorabedian, <span>“Veracode <span>Survey Research Identifies Cybersecurity Skills Gap Causes</span> and <span>Cures</span>,”</span> <em>Veracode</em>. Accessed: Jul. 12, 2023. [Online]. Available: <a href="https://www.veracode.com/blog/security-news/veracode-survey-research-identifies-cybersecurity-skills-gap-causes-and-cures">https://www.veracode.com/blog/security-news/veracode-survey-research-identifies-cybersecurity-skills-gap-causes-and-cures</a></div>
-</div>
-<div id="ref-sandersAssessingCommonSoftware2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">A. Sanders, G. S. Walia, and A. Allen, <span>“Assessing <span>Common Software Vulnerabilities</span> in <span>Undergraduate Computer Science Assignments</span>,”</span> <em>Journal of The Colloquium for Information Systems Security Education</em>, vol. 11, no. 1, p. 8, Feb. 2024, doi: <a href="https://doi.org/10.53735/cisse.v11i1.179">10.53735/cisse.v11i1.179</a>.</div>
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">A. Sanders, G. S. Walia, and A. Allen, <span>“Analysis of <span>Software Vulnerabilities Introduced</span> in <span>Programming Submissions Across Curriculum</span> at <span>Two Higher Education Institutions</span>,”</span> in <em>2024 <span>IEEE Frontiers</span> in <span>Education Conference</span> (<span>FIE</span>)</em>, Oct. 2024.</div>
 </div>
 <div id="ref-yilmazUnderstandingSecurityVulnerabilities2022" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[9] </div><div class="csl-right-inline">T. Yilmaz and Ö. Ulusoy, <span>“Understanding security vulnerabilities in student code: <span>A</span> case study in a non-security course,”</span> <em>Journal of Systems and Software</em>, vol. 185, p. 111150, Mar. 2022, doi: <a href="https://doi.org/10.1016/j.jss.2021.111150">10.1016/j.jss.2021.111150</a>.</div>
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">T. Yilmaz and Ö. Ulusoy, <span>“Understanding security vulnerabilities in student code: <span>A</span> case study in a non-security course,”</span> <em>Journal of Systems and Software</em>, vol. 185, p. 111150, Mar. 2022, doi: <a href="https://doi.org/10.1016/j.jss.2021.111150">10.1016/j.jss.2021.111150</a>.</div>
+</div>
+<div id="ref-jointtaskforceoncomputingcurriculaassociationforcomputingmachineryacmandieeecomputersocietyComputerScienceCurricula2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Joint Task Force on Computing Curricula, Association for Computing Machinery (ACM) and IEEE Computer Society, <em>Computer <span>Science Curricula</span> 2013: <span>Curriculum Guidelines</span> for <span>Undergraduate Degree Programs</span> in <span>Computer Science</span></em>. New York, NY, USA: Association for Computing Machinery, 2013.</div>
+</div>
+<div id="ref-departmentofhomelandsecurityus-certSoftwareAssurance" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">Department of Homeland Security, US-CERT, <span>“Software <span>Assurance</span>.”</span> Accessed: Jul. 11, 2023. [Online]. Available: <a href="https://www.cisa.gov/sites/default/files/publications/infosheet \_SoftwareAssurance.pdf">https://www.cisa.gov/sites/default/files/publications/infosheet \_SoftwareAssurance.pdf</a></div>
+</div>
+<div id="ref-verizonVerizon2023Data" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">Verizon, <span>“Verizon 2023 <span>Data Breach Investigations Report</span>,”</span> <em>Verizon Business</em>. Accessed: Oct. 30, 2024. [Online]. Available: <a href="https://www.verizon.com/business/resources/reports/dbir/">https://www.verizon.com/business/resources/reports/dbir/</a></div>
+</div>
+<div id="ref-johnzorabedianVeracodeSurveyResearch" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">John Zorabedian, <span>“Veracode <span>Survey Research Identifies Cybersecurity Skills Gap Causes</span> and <span>Cures</span>,”</span> <em>Veracode</em>. Accessed: Jul. 12, 2023. [Online]. Available: <a href="https://www.veracode.com/blog/security-news/veracode-survey-research-identifies-cybersecurity-skills-gap-causes-and-cures">https://www.veracode.com/blog/security-news/veracode-survey-research-identifies-cybersecurity-skills-gap-causes-and-cures</a></div>
+</div>
+<div id="ref-lamIdentifyingGapsSecure2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">J. Lam, E. Fang, M. Almansoori, R. Chatterjee, and A. G. Soosai Raj, <span>“Identifying <span>Gaps</span> in the <span>Secure Programming Knowledge</span> and <span>Skills</span> of <span>Students</span>,”</span> in <em>Proceedings of the 53rd <span>ACM Technical Symposium</span> on <span>Computer Science Education</span> - <span>Volume</span> 1</em>, in <span>SIGCSE</span> 2022, vol. 1. New York, NY, USA: Association for Computing Machinery, Feb. 2022, pp. 703–709. doi: <a href="https://doi.org/10.1145/3478431.3499391">10.1145/3478431.3499391</a>.</div>
+</div>
+<div id="ref-gasibaRankingSecureCoding2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">T. Gasiba, U. Lechner, J. Cuéllar, and A. Zouitni, <span>“Ranking <span>Secure Coding Guidelines</span> for <span>Software Developer Awareness Training</span> in the <span>Industry</span>.”</span> 2020. doi: <a href="https://doi.org/10.4230/OASIcs.ICPEC.2020.11">10.4230/OASIcs.ICPEC.2020.11</a>.</div>
+</div>
+<div id="ref-kennetha.williamsTeachingSecureCoding2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">Kenneth A. Williams, Xiaohong Yuan, Huiming Yu, and Kelvin Bryant, <span>“Teaching secure coding for beginning programmers,”</span> <em>Journal of Computing Sciences in Colleges</em>, vol. 29, no. 5, pp. 91–99, May 2014.</div>
+</div>
+<div id="ref-dieterpawelczakTeachingSecurityIntroductory2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">Dieter Pawelczak, <span>“Teaching <span>Security</span> in <span>Introductory C-Programming Courses</span>,”</span> <em>6th International Conference on Higher Education Advances (HEAd’20)</em>, Jun. 2020, doi: <a href="https://doi.org/10.4995/HEAd20.2020.11114">10.4995/HEAd20.2020.11114</a>.</div>
+</div>
+<div id="ref-junzhuInteractiveSupportSecure2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">Jun Zhu, Heather Richter Lipford, and Bill Chu, <span>“Interactive support for secure programming education,”</span> in <em>Proceeding of the 44th <span>ACM</span> technical symposium on <span>Computer</span> science education</em>, in <span>SIGCSE</span> ’13. New York, NY, USA: Association for Computing Machinery, Mar. 2013, pp. 687–692. doi: <a href="https://doi.org/10.1145/2445196.2445396">10.1145/2445196.2445396</a>.</div>
+</div>
+<div id="ref-chiTeachingSecureCoding2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">H. Chi, E. L. Jones, and J. Brown, <span>“Teaching <span>Secure Coding Practices</span> to <span>STEM Students</span>,”</span> in <em>Proceedings of the 2013 on <span>InfoSecCD</span> ’13: <span>Information Security Curriculum Development Conference</span></em>, in <span>InfoSecCD</span> ’13. New York, NY, USA: Association for Computing Machinery, Oct. 2013, pp. 42–48. doi: <a href="https://doi.org/10.1145/2528908.2528911">10.1145/2528908.2528911</a>.</div>
+</div>
+<div id="ref-liuTraditionalTeachingLarge2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">M. Liu and F. M’Hiri, <span>“Beyond <span>Traditional Teaching</span>: <span>Large Language Models</span> as <span>Simulated Teaching Assistants</span> in <span>Computer Science</span>,”</span> in <em>Proceedings of the 55th <span>ACM Technical Symposium</span> on <span>Computer Science Education V</span>. 1</em>, in <span>SIGCSE</span> 2024. New York, NY, USA: Association for Computing Machinery, Mar. 2024, pp. 743–749. doi: <a href="https://doi.org/10.1145/3626252.3630789">10.1145/3626252.3630789</a>.</div>
+</div>
+<div id="ref-tambergHarnessingLargeLanguage2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">K. Tamberg and H. Bahsi, <span>“Harnessing <span>Large Language Models</span> for <span>Software Vulnerability Detection</span>: <span>A Comprehensive Benchmarking Study</span>,”</span> <em>ArXiv</em>, 2024, doi: <a href="https://doi.org/10.48550/ARXIV.2405.15614">10.48550/ARXIV.2405.15614</a>.</div>
+</div>
+<div id="ref-Sanders2025Pedalogical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">A. Sanders, G. S. and Walia, L. Cordova, and T. Mendoza, <span>“Pedalogical: Feedback tool to reduce software vulnerabilities in non-security computer science courses,”</span> in <em>2025 IEEE frontiers in education conference (FIE)</em>, 2025.</div>
+</div>
+<div id="ref-prather2023robots" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">J. Prather <em>et al.</em>, <span>“The robots are coming: Exploring the implications of openai codex on introductory programming,”</span> in <em>Proceedings of the 2023 ACM conference on innovation and technology in computer science education</em>, ACM, 2023, pp. 10–16.</div>
+</div>
+<div id="ref-macneil2023experiences" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">S. MacNeil <em>et al.</em>, <span>“Experiences from using code explanations generated by large language models in a web software development e-book,”</span> in <em>Proceedings of the 54th ACM technical symposium on computer science education</em>, ACM, 2023, pp. 931–937.</div>
+</div>
+<div id="ref-denny2023conversing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">P. Denny, V. Kumar, and N. Giacaman, <span>“Conversing with copilot: Exploring prompt engineering for solving cs1 problems using natural language,”</span> in <em>Proceedings of the 54th ACM technical symposium on computer science education</em>, ACM, 2023, pp. 1136–1142.</div>
+</div>
+<div id="ref-nicats2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[19] </div><div class="csl-right-inline">A. Sanders, B. Boswell, G. S. Walia, and A. Allen, <span>“Non-intrusive classroom attention tracking system (NiCATS),”</span> in <em>2021 IEEE frontiers in education conference (FIE)</em>, 2021, pp. 1–9. doi: <a href="https://doi.org/10.1109/FIE49875.2021.9637411">10.1109/FIE49875.2021.9637411</a>.</div>
+</div>
+<div id="ref-Elbawab2023MachineLA" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[20] </div><div class="csl-right-inline">M. Elbawab and R. Henriques, <span>“Machine learning applied to student attentiveness detection: Using emotional and non-emotional measures,”</span> <em>Education and Information Technologies</em>, pp. 1–21, 2023, doi: <a href="https://doi.org/10.1007/s10639-023-11814-5">10.1007/s10639-023-11814-5</a>.</div>
+</div>
+<div id="ref-Xie2023StudentED" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[21] </div><div class="csl-right-inline">N. Xie, Z. Liu, Z. Li, W. Pang, and B. Lu, <span>“Student engagement detection in online environment using computer vision and multi-dimensional feature fusion,”</span> <em>Multimedia Systems</em>, vol. 29, pp. 3559–3577, 2023, doi: <a href="https://doi.org/10.1007/s00530-023-01153-3">10.1007/s00530-023-01153-3</a>.</div>
+</div>
+<div id="ref-Zhu2024OptimizingCL" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[22] </div><div class="csl-right-inline">B. Zhu, K. T. Chau, and N. A. M. Mokmin, <span>“Optimizing cognitive load and learning adaptability with adaptive microlearning for in-service personnel,”</span> <em>Scientific Reports</em>, vol. 14, 2024, doi: <a href="https://doi.org/10.1038/s41598-024-77122-1">10.1038/s41598-024-77122-1</a>.</div>
 </div>
 <div id="ref-sweller2019cognitive" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[10] </div><div class="csl-right-inline">J. Sweller, J. J. van Merriënboer, and F. Paas, <span>“Cognitive architecture and instructional design: 20 years later,”</span> <em>Educational Psychology Review</em>, vol. 31, no. 2, pp. 261–292, 2019.</div>
+<div class="csl-left-margin">[23] </div><div class="csl-right-inline">J. Sweller, J. J. van Merriënboer, and F. Paas, <span>“Cognitive architecture and instructional design: 20 years later,”</span> <em>Educational Psychology Review</em>, vol. 31, no. 2, pp. 261–292, 2019.</div>
 </div>
-<div id="ref-vygotsky1978mind" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[11] </div><div class="csl-right-inline">L. S. Vygotsky, <em>Mind in society: The development of higher psychological processes</em>. Cambridge, MA: Harvard University Press, 1978.</div>
-</div>
-<div id="ref-shenChatGPT2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[12] </div><div class="csl-right-inline">Y. Shen <em>et al.</em>, <span>“ChatGPT and other large language models are double-edged swords,”</span> <em>Radiology</em>, vol. 307, no. 2, p. e230163, 2023, doi: <a href="https://doi.org/10.1148/radiol.230163">10.1148/radiol.230163</a>.</div>
+<div id="ref-Vygotsky:78" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[24] </div><div class="csl-right-inline">L. Vygotsky, <em>Mind in society: Development of higher psychological processes</em>. Cambridge: Harvard University Press, 1978.</div>
 </div>
 </div>
 
@@ -685,6 +612,11 @@ Students often learn to write code before they learn to write <em>secure</em> co
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 1,
+
+        maxScale: 1,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
