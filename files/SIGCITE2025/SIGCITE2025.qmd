@@ -41,13 +41,14 @@ format:
     code-line-numbers: true
     highlight-style: github
     smaller: true
-    min-scale: 1
-    max-scale: 1
+    # min-scale: 1
+    # max-scale: 1
     fragments: true
     mermaid:
       theme: forest
     theme: [style.scss]
-    mermaid-format: js
+    mermaid-format: png
+  html: default
 execute:
   echo: false
   warning: false
@@ -121,7 +122,6 @@ flowchart LR
     F --> G
     G --> H["Large Language Model<br/>(Custom Few-Shot prompt)"]
     H --> I["Present Vulnerability Feedback to User"]
-
     
 ```
 
