@@ -41,13 +41,13 @@ format:
     code-line-numbers: true
     highlight-style: github
     smaller: true
-    # min-scale: 1
-    # max-scale: 1
+    min-scale: 1
+    max-scale: 1
     fragments: true
     mermaid:
       theme: forest
     theme: [style.scss]
-    mermaid-format: png
+    mermaid-format: js
   html: default
 execute:
   echo: false

@@ -141,6 +141,10 @@
       margin-right: 0; 
     }
   </style>
+  <meta name="mermaid-theme" content="forest">
+  <script src="SIGCITE2025_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="SIGCITE2025_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="SIGCITE2025_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -265,12 +269,23 @@ Lucas P. Cordova, Ph.D.
 </section>
 <section id="capv-system-architecture" class="slide level2">
 <h2>CAPV System Architecture</h2>
-<div class="cell" data-layout-align="default">
+<div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<p><img data-src="SIGCITE2025_files\figure-revealjs\mermaid-figure-1.png" style="width:14.56in;height:4.15in"></p>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Gaze Data&lt;br/&gt;(eyetracker)"] --&gt;
+    B["Cognitive Level Prediction Module"]
+    C["Face Images&lt;br/&gt;(webcam)"] --&gt; D["Attentiveness Prediction Module&lt;br/&gt;(Convolutional Neural Network)"]
+    E["Code File"] --&gt; F["Vulnerability Analysis&lt;br/&gt;(SonarQube)"]
+    B --&gt; G["Vulnerabilty Selector Module"]
+    D --&gt; G
+    F --&gt; G
+    G --&gt; H["Large Language Model&lt;br/&gt;(Custom Few-Shot prompt)"]
+    H --&gt; I["Present Vulnerability Feedback to User"]
+    
+</pre>
 </div>
 <p></p></figure><p></p>
 </div>
@@ -596,6 +611,11 @@ Lucas P. Cordova, Ph.D.
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
+
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 1,
+
+        maxScale: 1,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
