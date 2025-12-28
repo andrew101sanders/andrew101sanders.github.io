@@ -7,488 +7,456 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Logan Sanders - Computer Scientist & Researcher</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">  -->
 
 </head>
 
-<body class="bg-gray-100">
-    <header class="bg-primary text-white sticky top-0 z-50 shadow-md">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold">Andrew L. Sanders</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="#about" class="hover:text-primary-light transition duration-300">About</a>
-                <a href="#achievements" class="hover:text-primary-light transition duration-300">Achievements</a>
-                <a href="#education" class="hover:text-primary-light transition duration-300">Education</a>
-                <a href="#publications" class="hover:text-primary-light transition duration-300">Publications</a>
-                <a href="#projects" class="hover:text-primary-light transition duration-300">Projects</a>
-                <a href="#skills" class="hover:text-primary-light transition duration-300">Skills</a>
-                <a href="#contact" class="hover:text-primary-light transition duration-300">Contact</a>
+<body>
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#education">Education</a>
+            <a href="#publications">Publications</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <div>
+                <a href="https://github.com/andrew101sanders">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <title>GitHub</title>
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/andrew-sanders-80575a145/">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <title>LinkedIn</title>
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+                <a href="https://orcid.org/0009-0004-7158-0097">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <title>ORCID</title>
+                        <path
+                            d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z" />
+                    </svg>
+                </a>
+                <a id="cv" href="files/Andrew_Sanders_CV.pdf">CV</a>
             </div>
-            <button class="md:hidden focus:outline-none" id="menu-toggle">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
+            <!-- <button id="menu-toggle">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
                     </path>
                 </svg>
-            </button>
+            </button> -->
         </nav>
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 transition duration-300">About</a>
-                <a href="#achievements"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 transition duration-300">Achievements</a>
-                <a href="#skills"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 transition duration-300">Skills</a>
-                <a href="#education"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 transition duration-300">Education</a>
-                <a href="#publications"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 transition duration-300">Publications</a>
-                <a href="#projects"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 transition duration-300">Projects</a>
-                <a href="#contact"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-600 transition duration-300">Contact</a>
+        <!-- <div id="mobile-menu">
+            <div>
+                <a href="#about">About</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#publications">Publications</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-        </div>
+        </div> -->
     </header>
 
-    <main class="container mx-auto px-6 py-12">
-        <section id="hero" class="bg-primary text-white py-20 mb-12 rounded-lg shadow-lg">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-5xl font-bold mb-4">Andrew Logan Sanders</h1>
-                <p class="text-xl mb-8">Computer Scientist | PhD Student | Researcher</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="https://github.com/andrew101sanders"
-                        class="bg-white text-primary p-2 rounded-full hover:bg-primary-light transition duration-300">
-                        <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>GitHub</title>
-                            <path fill="currentColor"
-                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/andrew-sanders-80575a145/"
-                        class="bg-white text-primary p-2 rounded-full hover:bg-primary-light transition duration-300">
-                        <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>LinkedIn</title>
-                            <path fill="currentColor"
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </a>
-                    <a href="https://orcid.org/0009-0004-7158-0097"
-                        class="bg-white text-primary p-2 rounded-full hover:bg-primary-light transition duration-300">
-                        <svg class="w-8 h-8" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>ORCID</title>
-                            <path fill="currentColor"
-                                d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z" />
-                        </svg>
-                    </a>
-                    <a href="files/Andrew_Sanders_CV.pdf"
-                        class="bg-white text-indigo-700 px-6 py-3 rounded-full hover:bg-primary-light transition duration-300">Download
-                        CV</a>
-                </div>
+    <main>
+        <section id="hero">
+            <div>
+                <h1>Andrew Logan Sanders</h1>
+                <h2>Computer Scientist | PhD Student | Researcher</h2>
             </div>
+            <hr>
         </section>
 
-        <section id="about" class="mt-12 mb-20 scroll-mt-24 bg-gray-50 rounded-lg p-8 shadow-sm">
-            <h2 class="text-3xl font-bold mb-8">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-10">
-                <picture class="flex-shrink-0 transition duration-300 ease-in-out hover:scale-105">
-                    <source type="image/webp" srcset="images/Andrew_320w.webp 320w,
-                images/Andrew_640w.webp 640w,
-                images/Andrew_original.webp" sizes="(max-width: 640px) 100vw,
-               (max-width: 1024px) 50vw,
-               33vw" />
-                    <img src="images/Andrew.jpg" alt="Andrew Sanders"
-                        class="w-40 h-52 object-cover object-[center_30%] rounded-full border-4 border-primary shadow-lg" />
-                </picture>
-                <div class="flex-1 md:pl-4">
-                    <p class="text-lg leading-relaxed mb-4">
-                        <span class="font-semibold">I'm from Saint Simons Island, Georgia and I'm passionate about
-                            computer science.</span> With a Bachelor's and Master's in Computer Science from Georgia
-                        Southern University, I'm currently pursuing my PhD at Augusta University. My research focuses on
-                        software vulnerabilities, classroom attention tracking, and AI applications in education. I'm
-                        dedicated to pushing the boundaries of what's possible in computer science and its applications
-                        in educational settings.
-                    </p>
-                    <p class="text-lg leading-relaxed">
-                        In addition to my academic pursuits, I'm committed to promoting computer science as a career.
-                        Recently, I had the opportunity to speak with hundreds of high school students at the Big Tide
-                        Changemakers Summit 2024, sharing my experiences and insights about the field of computer
-                        science.
-                    </p>
-                </div>
+        <section id="about">
+            <h1>About Me</h1>
+            <div id="bio">
+                <p>
+                    <img src="images/Andrew_original.webp" alt="Andrew Sanders" />
+                    I'm from Saint Simons Island, Georgia and I'm passionate about computer science. With a Bachelor's
+                    and Master's in Computer Science from Georgia
+                    Southern University, I'm currently pursuing my PhD at Augusta University. My research focuses on
+                    software vulnerabilities, classroom attention tracking, and AI applications in education. I'm
+                    dedicated to pushing the boundaries of what's possible in computer science and its applications
+                    in educational settings.
+                    </br>
+                    </br>
+                    In addition to my academic pursuits, I'm committed to promoting computer science as a career.
+                    Recently, I had the opportunity to speak with hundreds of high school students at the Big Tide
+                    Changemakers Summit 2025, sharing my experiences and insights about the field of computer
+                    science.
+                </p>
             </div>
+            <hr>
         </section>
 
-        <section id="achievements" class="mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold mb-6">Recent Achievements</h2>
-            <div class="space-y-6">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-2 text-primary">Recipient of DoD Cyber Service Academy
+        <section id="achievements">
+            <h1>Recent Achievements</h1>
+            <div>
+                <div>
+                    <h3>Recipient of DoD Cyber Service Academy
                         Scholarship</h3>
-                    <p class="text-text">
+                    <p>
                         Awarded the prestigious Department of Defense (DoD) Cyber Service Academy (CSA) Scholarship,
                         which supports students pursuing careers in cybersecurity and information assurance. This
                         scholarship recognizes academic excellence and commitment to addressing the nation's critical
                         cybersecurity needs.
                     </p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-2 text-primary">Third Place at Innovate 2024</h3>
-                    <p class="text-text">
+                <div>
+                    <h3>Third Place at Innovate 2024</h3>
+                    <p>
                         Pitched my thesis work, NiCATS (Non-intrusive Classroom Attention Tracking System), at <a
-                            href="https://augustainnovation.com/winners" class="text-secondary hover:underline">Innovate
+                            href="https://augustainnovation.com/winners">Innovate
                             2024</a>. The presentation focused on using
                         NiCATS to help diagnose children with learning disabilities, showcasing the potential real-world
                         impact of my research.
                     </p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-2 text-primary">Speaker at Big Tide Changemakers Summit 2024 and 2025
+                <div>
+                    <h3>Speaker at Big Tide Changemakers Summit 2024 and 2025
                     </h3>
                     </h3>
-                    <p class="text-text">
+                    <p>
                         Engaged with hundreds of high school students at the <a
-                            href="https://www.facebook.com/bigtidesummit/" class="text-secondary hover:underline">Big
+                            href="https://www.facebook.com/bigtidesummit/">Big
                             Tide Changemakers Summit 2024 and 2025</a>, promoting computer science as a career path and
                         sharing
                         insights about the field's potential and opportunities.
                     </p>
                 </div>
             </div>
+            <hr>
         </section>
 
-        <section id="education" class="mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold mb-6">Education</h2>
-            <div class="space-y-8">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-2 text-primary">PhD in Computer and Cyber Science</h3>
-                    <p class="text-text-light">Augusta University</p>
-                    <p class="text-text-light">Advisor: Dr. Gursimran Singh Walia</p>
-                    <p class="text-text-light">Expected graduation: 2026</p>
-                    <p class="text-text-light">Dissertation Topic: Software Vulnerability Feedback and Education</p>
+        <section id="education">
+            <h1>Education</h1>
+            <div>
+                <div>
+                    <h3>PhD in Computer and Cyber Science</h3>
+                    <p>Augusta University</p>
+                    <p>Advisor: Dr. Gursimran Singh Walia</p>
+                    <p>Expected graduation: 2026</p>
+                    <p>Dissertation Topic: Software Vulnerability Feedback and Education</p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-2 text-primary">Master's in Computer Science</h3>
-                    <p class="text-text-light">Georgia Southern University</p>
-                    <p class="text-text-light">Advisors: Dr. Gursimran Singh Walia and Dr. Andrew Allen</p>
-                    <p class="text-text-light">Graduation year: 2022</p>
-                    <p class="mt-2">
-                        <a href="https://digitalcommons.georgiasouthern.edu/etd/2442/"
-                            class="text-secondary hover:underline">Thesis: Developing And Validating A Machine
+                <div>
+                    <h3>Master's in Computer Science</h3>
+                    <p>Georgia Southern University</p>
+                    <p>Advisors: Dr. Gursimran Singh Walia and Dr. Andrew Allen</p>
+                    <p>Graduation year: 2022</p>
+                    <p>
+                        <a href="https://digitalcommons.georgiasouthern.edu/etd/2442/">Thesis: Developing And Validating
+                            A Machine
                             Learning-Based Student Attentiveness Tracking System</a>
-                        (<a href="files/Developing_And_Validating_A_Machine_Learning-Based_Student_Attent.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a href="files/Developing_And_Validating_A_Machine_Learning-Based_Student_Attent.pdf">PDF</a>)
                     </p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-2 text-primary">Bachelor's in Computer Science</h3>
-                    <p class="text-text-light">Georgia Southern University</p>
-                    <p class="text-text-light">Graduation year: 2020</p>
+                <div>
+                    <h3>Bachelor's in Computer Science</h3>
+                    <p>Georgia Southern University</p>
+                    <p>Graduation year: 2020</p>
                 </div>
             </div>
+            <hr>
         </section>
 
-        <section id="publications" class="mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold mb-6">Publications</h2>
-            <div class="space-y-8">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">2025</h3>
-                    <p class="mb-4 pl-8 -indent-8">
-                        (Accepted) Sanders, A.,  Walia, G., & Cordova, L. (2025). Cognitive-Aware Plugin for
+        <section id="publications">
+            <h1>Publications</h1>
+            <div>
+                <div>
+                    <h2>2025</h2>
+                    <p>
+                        Sanders, A., Walia, G., & Cordova, L. (2025). Cognitive-Aware Plugin for
                         Vulnerability Feedback. In
                         <i>2025 Annual ACM Conference on Cybersecurity and Information Technology Education</i>
                         (SIGCITE).
-                        (<a href="files/Cognitive-Aware_Plugin_for_Vulnerability_Feedback.pdf"
-                            class="text-secondary hover:underline">PDF</a>) (<a href="files/SIGCITE2025/SIGCITE2025-slides.html" class="text-secondary hover:underline">Slides</a>)
+                        (<a href="files/Cognitive-Aware_Plugin_for_Vulnerability_Feedback.pdf">PDF</a>) (<a
+                            href="files/SIGCITE2025/SIGCITE2025-slides.html">Slides</a>)
                     </p>
-                    <p class="mb-4 pl-8 -indent-8">
-                        (Accepted) Cordova, L., Mendoza, T., Webster, B., Sanders, A., &  Walia, G. (2025). Expanding Pedagogical AI
+                    <p>
+                        Cordova, L., Mendoza, T., Webster, B., Sanders, A., & Walia, G. (2025). Expanding Pedagogical AI
                         Scaffolding to IT and Cybersecurity Education: A Call for Multi-Institutional Validation. In
                         <i>2025 Annual ACM Conference on Cybersecurity and Information Technology Education</i>
                         (SIGCITE).
-                        (<a href="files/Expanding_Pedagogical_AI_Scaffolding_to_IT_and_Cybersecurity.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a href="files/Expanding_Pedagogical_AI_Scaffolding_to_IT_and_Cybersecurity.pdf">PDF</a>)
                     </p>
-                    <p class="mb-4 pl-8 -indent-8">
-                        (Accepted) Sanders, A.,  Walia, G., Cordova, L., and Mendoza, T. (2025). Pedalogical:
+                    <p>
+                        Sanders, A., Walia, G., Cordova, L., and Mendoza, T. (2025). Pedalogical:
                         Feedback Tool to Reduce Software Vulnerabilities in Non-Security Computer Science Courses. In
                         <i>2025 IEEE Frontiers in Education Conference</i> (FIE).
-                        (<a href="files/Pedalogical_Feedback_Tool_to_Reduce_Software.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a href="files/Pedalogical_Feedback_Tool_to_Reduce_Software.pdf">PDF</a>)
                     </p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">2024</h3>
-                    <p class="mb-4 pl-8 -indent-8">
-                        Sanders, A.,  Walia, G., & Allen, A. (2024). Analysis of Software Vulnerabilities
+                <div>
+                    <h2>2024</h2>
+                    <p>
+                        Sanders, A., Walia, G., & Allen, A. (2024). Analysis of Software Vulnerabilities
                         Introduced in Programming Submissions Across Curriculum at Two Higher Education Institutions. In
                         <i>2024 IEEE Frontiers in Education Conference</i> (FIE).
-                        (<a href="files/Analysis_of_Software_Vulnerabilities_Introduced_in_Programming_Submissions_Across_Curriculum_at_Two_Higher_Education_Institutions.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a
+                            href="files/Analysis_of_Software_Vulnerabilities_Introduced_in_Programming_Submissions_Across_Curriculum_at_Two_Higher_Education_Institutions.pdf">PDF</a>)
                     </p>
-                    <p class="mb-4 pl-8 -indent-8">
-                        Boswell, B., Sanders, A.,  Walia, G., & Allen, A. (2024). Utilizing Convolutional Neural
+                    <p>
+                        Boswell, B., Sanders, A., Walia, G., & Allen, A. (2024). Utilizing Convolutional Neural
                         Networks and Eye-Tracking Data for Classroom Attention Tracking. In <i>Proceedings of the 57th
                             Hawaii International Conference on System Sciences (HICSS-57)</i>.
-                        (<a href="files/Utilizing_Convolutional_Neural_Networks_and_Eye_Tracking_Data_for_Classroom_Attention_Tracking.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a
+                            href="files/Utilizing_Convolutional_Neural_Networks_and_Eye_Tracking_Data_for_Classroom_Attention_Tracking.pdf">PDF</a>)
                     </p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">2023</h3>
-                    <p class="mb-4 pl-8 -indent-8">
-                        Sanders, A.,  Walia, G., & Allen, A. (2023). Assessing Common Software Vulnerabilities in
+                <div>
+                    <h2>2023</h2>
+                    <p>
+                        Sanders, A., Walia, G., & Allen, A. (2023). Assessing Common Software Vulnerabilities in
                         Undergraduate Computer Science Assignments. In <i>Proceedings of the 27th Colloquium on
                             Information Systems Security Education (CISSE)</i>.
-                        (<a href="files/CISSE_Assessing_Common_Software_Vulnerabilities_in_Undergraduate_Computer_Science_Assignments.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a
+                            href="files/CISSE_Assessing_Common_Software_Vulnerabilities_in_Undergraduate_Computer_Science_Assignments.pdf">PDF</a>)
                     </p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">2022</h3>
-                    <p class="mb-4 pl-8 -indent-8">
-                        Sanders, A., Boswell, B., Allen, A.,  Walia, G., & Shakil Hossain, M. (2022). Development
+                <div>
+                    <h2>2022</h2>
+                    <p>
+                        Sanders, A., Boswell, B., Allen, A., Walia, G., & Shakil Hossain, M. (2022). Development
                         and Field-Testing of a Non-intrusive Classroom Attention Tracking System (NiCATS) for Tracking
                         Student Attention in CS Classrooms. In <i>2022 IEEE Frontiers in Education Conference (FIE)</i>.
-                        (<a href="files/Development_and_Field-Testing_of_a_Non-intrusive_Classroom_Attention_Tracking_System_NiCATS_for_Tracking_Student_Attention_in_CS_Classrooms.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a
+                            href="files/Development_and_Field-Testing_of_a_Non-intrusive_Classroom_Attention_Tracking_System_NiCATS_for_Tracking_Student_Attention_in_CS_Classrooms.pdf">PDF</a>)
                     </p>
-                    <p class="mb-4 pl-8 -indent-8">
-                        Boswell, B., Sanders, A., Allen, A.,  Walia, G., & Shakil Hossain, M. (2022). Using
+                    <p>
+                        Boswell, B., Sanders, A., Allen, A., Walia, G., & Shakil Hossain, M. (2022). Using
                         AI-based NiCATS System to Evaluate Student Comprehension in Introductory Computer Programming
                         Courses. In <i>2022 IEEE Frontiers in Education Conference (FIE)</i>.
-                        (<a href="files/Using_AI-based_NiCATS_System_to_Evaluate_Student_Comprehension_in_Introductory_Computer_Programming_Courses.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a
+                            href="files/Using_AI-based_NiCATS_System_to_Evaluate_Student_Comprehension_in_Introductory_Computer_Programming_Courses.pdf">PDF</a>)
                     </p>
-                    <p class="mb-4 pl-8 -indent-8">
+                    <p>
                         Sanders, A. (2022). Developing And Validating A Machine Learning-Based Student Attentiveness
                         Tracking System. <i>Electronic Theses and Dissertations</i>.
-                        (<a href="files/Developing_And_Validating_A_Machine_Learning-Based_Student_Attent.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a href="files/Developing_And_Validating_A_Machine_Learning-Based_Student_Attent.pdf">PDF</a>)
                     </p>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">2021</h3>
-                    <p class="mb-4 pl-8 -indent-8">
-                        Sanders, A., Boswell, B.,  Walia, G., & Allen, A. (2021). Non-Intrusive Classroom Attention
+                <div>
+                    <h2>2021</h2>
+                    <p>
+                        Sanders, A., Boswell, B., Walia, G., & Allen, A. (2021). Non-Intrusive Classroom Attention
                         Tracking System (NiCATS). In <i>2021 IEEE Frontiers in Education Conference (FIE)</i>.
-                        (<a href="files/Non-Intrusive_Classroom_Attention_Tracking_System_NiCATS.pdf"
-                            class="text-secondary hover:underline">PDF</a>)
+                        (<a href="files/Non-Intrusive_Classroom_Attention_Tracking_System_NiCATS.pdf">PDF</a>)
                     </p>
                 </div>
             </div>
+            <hr>
         </section>
 
-        <section id="projects" class="mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold mb-6">Projects <small>(Undergraduate, just check Publications)</small></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/EngagementRTCD_320w.webp 320w,
+        <section id="projects">
+            <details>
+                <summary>
+                    Projects <small>(Undergraduate, just check Publications)</small>
+                </summary>
+                <div class="grid-container">
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/EngagementRTCD_320w.webp 320w,
                 images/EngagementRTCD_640w.webp 640w,
                 images/EngagementRTCD_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/EngagementRTCD.png" alt="Engagement Tracker" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">Engagement Tracker</h3>
-                        <p class="text-text-light mb-4">NodeJS, Python, C#, SQL Server, C++, PostGreSQL</p>
-                        <p class="text-text">System for judging classroom attentiveness using eye trackers, web
-                            cameras, and a Convolutional Neural Network. (Started as a class project and expanded to
-                            extracurricular research)</p>
+                            <img src="images/EngagementRTCD.png" alt="Engagement Tracker">
+                        </picture>
+                        <div>
+                            <h3>Engagement Tracker</h3>
+                            <p>NodeJS, Python, C#, SQL Server, C++, PostGreSQL</p>
+                            <p>System for judging classroom attentiveness using eye trackers, web
+                                cameras, and a Convolutional Neural Network. (Started as a class project and expanded to
+                                extracurricular research)</p>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/AI3_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/AI3_320w.webp 320w,
                 images/AI3_640w.webp 640w,
                 images/AI3_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/AI3.png" alt="Pixel-based Shortest Path" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">Pixel-based Shortest Path</h3>
-                        <p class="text-text-light mb-4">Python</p>
-                        <p class="text-text">Program for finding the shortest path given "satellite data".</p>
-                        <a href="https://github.com/andrew101sanders/AISoftbot"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/AI3.png" alt="Pixel-based Shortest Path">
+                        </picture>
+                        <div>
+                            <h3>Pixel-based Shortest Path</h3>
+                            <p>Python</p>
+                            <p>Program for finding the shortest path given "satellite data".</p>
+                            <a href="https://github.com/andrew101sanders/AISoftbot">GitHub Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/OurSongs_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/OurSongs_320w.webp 320w,
                 images/OurSongs_640w.webp 640w,
                 images/OurSongs_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/OurSongs.png" alt="OurSongs" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">OurSongs</h3>
-                        <p class="text-text-light mb-4">NodeJS, SQL Server</p>
-                        <p class="text-text">Spotify-integrated song and playlist sharing service.</p>
-                        <a href="https://github.com/averyboutin/OurSongs" class="text-secondary hover:underline">GitHub
-                            Repository</a>
+                            <img src="images/OurSongs.png" alt="OurSongs">
+                        </picture>
+                        <div>
+                            <h3>OurSongs</h3>
+                            <p>NodeJS, SQL Server</p>
+                            <p>Spotify-integrated song and playlist sharing service.</p>
+                            <a href="https://github.com/averyboutin/OurSongs">GitHub
+                                Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/SimpleWebserver_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/SimpleWebserver_320w.webp 320w,
                 images/SimpleWebserver_640w.webp 640w,
                 images/SimpleWebserver_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/SimpleWebserver.png" alt="Simple-Webserver" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">Simple-Webserver</h3>
-                        <p class="text-text-light mb-4">NodeJS</p>
-                        <p class="text-text">Light-weight webserver that allows for transferring of files
-                            to-and-from. Allows for watching of media when not near the computer.</p>
-                        <a href="https://github.com/andrew101sanders/Simple-Webserver"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/SimpleWebserver.png" alt="Simple-Webserver">
+                        </picture>
+                        <div>
+                            <h3>Simple-Webserver</h3>
+                            <p>NodeJS</p>
+                            <p>Light-weight webserver that allows for transferring of files
+                                to-and-from. Allows for watching of media when not near the computer.</p>
+                            <a href="https://github.com/andrew101sanders/Simple-Webserver">GitHub Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/ZombiLand_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/ZombiLand_320w.webp 320w,
                                             images/ZombiLand_640w.webp 640w,
                                             images/ZombiLand_1280w.webp 1280w,
                                             images/ZombiLand_original.webp" sizes="(max-width: 640px) 100vw,
                                         (max-width: 1024px) 50vw,
                                         33vw" />
-                        <img src="images/ZombiLand.png" alt="ZombiLand" class="w-full h-48 object-cover"
-                            loading="lazy" />
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">ZombiLand</h3>
-                        <p class="text-text-light mb-4">Java</p>
-                        <p class="text-text">Top-down survival shooter. Created using JavaFX.</p>
-                        <a href="https://github.com/Syntaxii/OOD" class="text-secondary hover:underline">GitHub
-                            Repository</a>
+                            <img src="images/ZombiLand.png" alt="ZombiLand" loading="lazy" />
+                        </picture>
+                        <div>
+                            <h3>ZombiLand</h3>
+                            <p>Java</p>
+                            <p>Top-down survival shooter. Created using JavaFX.</p>
+                            <a href="https://github.com/Syntaxii/OOD">GitHub
+                                Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/VR2_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/VR2_320w.webp 320w,
                 images/VR2_640w.webp 640w,
                 images/VR2_1280w.webp 1280w,
                 images/VR2_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/VR2.png" alt="VR Driving Game" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">VR Driving Game</h3>
-                        <p class="text-text-light mb-4">Unity, Blender, C#</p>
-                        <p class="text-text">VR game made in Unity for a class project.</p>
-                        <a href="https://github.com/andrew101sanders/VRDrivingGame"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/VR2.png" alt="VR Driving Game">
+                        </picture>
+                        <div>
+                            <h3>VR Driving Game</h3>
+                            <p>Unity, Blender, C#</p>
+                            <p>VR game made in Unity for a class project.</p>
+                            <a href="https://github.com/andrew101sanders/VRDrivingGame">GitHub Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/SynFlood_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/SynFlood_320w.webp 320w,
                 images/SynFlood_640w.webp 640w,
                 images/SynFlood_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/SynFlood.png" alt="Syn Packet Flooder" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">Syn Packet Flooder</h3>
-                        <p class="text-text-light mb-4">C#</p>
-                        <p class="text-text">Program for rapidly sending out packets to flood a network.</p>
-                        <a href="https://github.com/andrew101sanders/SynFlood"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/SynFlood.png" alt="Syn Packet Flooder">
+                        </picture>
+                        <div>
+                            <h3>Syn Packet Flooder</h3>
+                            <p>C#</p>
+                            <p>Program for rapidly sending out packets to flood a network.</p>
+                            <a href="https://github.com/andrew101sanders/SynFlood">GitHub Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/SavannahPort_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/SavannahPort_320w.webp 320w,
                 images/SavannahPort_640w.webp 640w,
                 images/SavannahPort_1280w.webp 1280w,
                 images/SavannahPort_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/SavannahPort.png" alt="SavannahPort" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">SavannahPort</h3>
-                        <p class="text-text-light mb-4">C#, SQL</p>
-                        <p class="text-text">Program for simulating the database of the port of Savannah.</p>
-                        <a href="https://github.com/as13770/DatabaseProject"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/SavannahPort.png" alt="SavannahPort">
+                        </picture>
+                        <div>
+                            <h3>SavannahPort</h3>
+                            <p>C#, SQL</p>
+                            <p>Program for simulating the database of the port of Savannah.</p>
+                            <a href="https://github.com/as13770/DatabaseProject">GitHub Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/AI10far_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/AI10far_320w.webp 320w,
                 images/AI10far_640w.webp 640w,
                 images/AI10far_1280w.webp 1280w,
                 images/AI10far_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/AI10far.png" alt="Registration Helper" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">Registration Helper</h3>
-                        <p class="text-text-light mb-4">C#</p>
-                        <p class="text-text">Program for helping a Computer Science student of Georgia Southern
-                            University to complete their Registration.</p>
-                        <a href="https://github.com/bradleyboswell/AI-RuleBasedSystem"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/AI10far.png" alt="Registration Helper">
+                        </picture>
+                        <div>
+                            <h3>Registration Helper</h3>
+                            <p>C#</p>
+                            <p>Program for helping a Computer Science student of Georgia Southern
+                                University to complete their Registration.</p>
+                            <a href="https://github.com/bradleyboswell/AI-RuleBasedSystem">GitHub Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/Chattyio_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/Chattyio_320w.webp 320w,
                 images/Chattyio_640w.webp 640w,
                 images/Chattyio_1280w.webp 1280w,
                 images/Chattyio_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/Chattyio.png" alt="Chattyio" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">Chattyio</h3>
-                        <p class="text-text-light mb-4">NodeJS</p>
-                        <p class="text-text">System for chatting online through a server.</p>
-                        <a href="https://github.com/bradleyboswell/Chatty.IO"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/Chattyio.png" alt="Chattyio">
+                        </picture>
+                        <div>
+                            <h3>Chattyio</h3>
+                            <p>NodeJS</p>
+                            <p>System for chatting online through a server.</p>
+                            <a href="https://github.com/bradleyboswell/Chatty.IO">GitHub Repository</a>
+                        </div>
                     </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                    <picture>
-                        <source type="image/webp" srcset="images/AirBnBPricer_320w.webp 320w,
+                    <div>
+                        <picture>
+                            <source type="image/webp" srcset="images/AirBnBPricer_320w.webp 320w,
                 images/AirBnBPricer_640w.webp 640w,
                 images/AirBnBPricer_original.webp" sizes="(max-width: 640px) 100vw,
                (max-width: 1024px) 50vw,
                33vw">
-                        <img src="images/AirBnBPricer.png" alt="AirBnB Pricer" class="w-full h-48 object-cover">
-                    </picture>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-primary">AirBnB Pricer</h3>
-                        <p class="text-text-light mb-4">Python</p>
-                        <p class="text-text">Program for recommending to homeowners a price to list their property
-                            on AirBnb.</p>
-                        <a href="https://github.com/andrew101sanders/MLProject"
-                            class="text-secondary hover:underline">GitHub Repository</a>
+                            <img src="images/AirBnBPricer.png" alt="AirBnB Pricer">
+                        </picture>
+                        <div>
+                            <h3>AirBnB Pricer</h3>
+                            <p>Python</p>
+                            <p>Program for recommending to homeowners a price to list their property
+                                on AirBnb.</p>
+                            <a href="https://github.com/andrew101sanders/MLProject">GitHub Repository</a>
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
+        </details>
+        <hr>
 
-        <section id="skills" class="mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold mb-6">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="font-semibold text-xl mb-4 text-primary">Programming</h3>
-                    <ul class="list-disc list-inside space-y-2">
+        <section id="skills">
+            <h1>Skills</h1>
+            <div>
+                <div>
+                    <h3>Programming</h3>
+                    <ul>
                         <li>Python</li>
                         <li>Java</li>
                         <li>C#</li>
@@ -496,111 +464,89 @@
                         <li>C++</li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="font-semibold text-xl mb-4 text-primary">Web Technologies</h3>
-                    <ul class="list-disc list-inside space-y-2">
+                <div>
+                    <h3>Web Technologies</h3>
+                    <ul>
                         <li>HTML/CSS</li>
                         <li>Node.js</li>
                         <li>React</li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="font-semibold text-xl mb-4 text-primary">Databases</h3>
-                    <ul class="list-disc list-inside space-y-2">
+                <div>
+                    <h3>Databases</h3>
+                    <ul>
                         <li>SQL Server</li>
                         <li>PostgreSQL</li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="font-semibold text-xl mb-4 text-primary">Machine Learning</h3>
-                    <ul class="list-disc list-inside space-y-2">
+                <div>
+                    <h3>Machine Learning</h3>
+                    <ul>
                         <li>Neural Networks</li>
                         <li>Computer Vision</li>
                         <li>TensorFlow</li>
                     </ul>
                 </div>
             </div>
+            <hr>
         </section>
 
-        <section id="contact" class="mb-20 scroll-mt-24 mt-16">
-            <h2 class="text-3xl font-bold mb-6">Contact Information</h2>
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <p class="mb-2"><strong>Location:</strong> Augusta, Georgia</p>
-                <p class="mb-2">
-                    <strong>Personal Email:</strong>
-                    <span class="email-obfuscate" data-name="andrew101sanders" data-domain="gmail"
-                        data-tld="com"></span>
-                </p>
-                <p class="mb-2">
-                    <strong>University Email:</strong>
-                    <span class="email-obfuscate" data-name="asanders4" data-domain="augusta" data-tld="edu"></span>
-                </p>
-                <p class="mt-4">Feel free to reach out for collaborations, research opportunities, or any inquiries
-                    about my work.</p>
-            </div>
-        </section>
+        <section id="contact">
+            <h1>Contact Information</h2>
+                <div>
+                    <p><strong>Location:</strong> Augusta, Georgia</p>
+                    <p>
+                        <strong>Personal Email:</strong>
+                        <span id="text-conversion">abc ef</span>
+                    </p>
+                    <p>
+                        <strong>University Email:</strong>
+                        <span id="text-conversion2">abc ef</span>
 
+                        <span data-name="asanders4" data-domain="augusta" data-tld="edu"></span>
+                    </p>
+                    <p>Feel free to reach out for collaborations, research opportunities, or any inquiries
+                        about my work.</p>
+                </div>
+                <hr>
+        </section>
     </main>
 
-    <footer class="bg-primary text-white py-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <h3 class="text-xl font-semibold">Andrew Logan Sanders</h3>
-                    <p>Computer Scientist | PhD Student | Researcher</p>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="https://github.com/andrew101sanders"
-                        class="hover:text-primary-light transition duration-300">
-                        <svg class="footer-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>GitHub</title>
-                            <path
-                                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/andrew-sanders-80575a145/"
-                        class="hover:text-primary-light transition duration-300">
-                        <svg class="footer-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>LinkedIn</title>
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                    </a>
-                    <a href="https://orcid.org/0009-0004-7158-0097"
-                        class="hover:text-primary-light transition duration-300">
-                        <svg class="footer-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <title>ORCID</title>
-                            <path
-                                d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z" />
-                        </svg>
-                    </a>
-                    <a href="files/Andrew_Sanders_CV.pdf"
-                        class="bg-white text-primary px-4 py-2 rounded-full hover:bg-primary-light transition duration-300">CV</a>
-                </div>
-            </div>
-            <div class="mt-8 text-center">
-                <p>&copy; 2024 Andrew Logan Sanders</p>
+    <footer>
+        <div>
+            <div>
+                <p>&copy; 2025 Andrew Logan Sanders</p>
             </div>
         </div>
     </footer>
-
-    <script>
-
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuToggle = document.getElementById('menu-toggle');
-
-        function toggleMenu() {
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        menuToggle.addEventListener('click', toggleMenu);
-
-        mobileMenu.addEventListener('click', (event) => {
-            if (event.target.tagName === 'A') {
-                toggleMenu();
-            }
-        });
-    </script>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const email = document.getElementById('text-conversion').firstChild;
+
+        email.nodeValue = email.nodeValue
+            .replace(' ', '@')
+            .replaceAll(' ', '.')
+            .replaceAll(new RegExp('[e]', 'g'), '')
+            .replaceAll('a', 'andre')
+            .replaceAll('b', 'w')
+            .replaceAll('c', '101sanders')
+            .replace('f', 'gmail.com');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const email = document.getElementById('text-conversion2').firstChild;
+
+        email.nodeValue = email.nodeValue
+            .replace(' ', '@')
+            .replaceAll(' ', '.')
+            .replaceAll(new RegExp('[e]', 'g'), '')
+            .replaceAll('a', 'asan')
+            .replaceAll('b', 'ders')
+            .replaceAll('c', '4')
+            .replace('f', 'augusta.edu');
+    });
+</script>
 
 </html>
